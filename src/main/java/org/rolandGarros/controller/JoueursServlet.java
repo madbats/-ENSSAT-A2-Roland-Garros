@@ -32,7 +32,7 @@ public class JoueursServlet extends HttpServlet {
 		// String searchText = request.getParameter("searchText");
 		List<Joueur> listJoueurs = new ArrayList<Joueur>(joueurService.getAll());
 				
-        String pageName="/joueurs.jsp";
+        String pageName="/WEB-INF/joueurs.jsp";
         request.setAttribute("listJoueurs", listJoueurs);
         RequestDispatcher rd = getServletContext().getRequestDispatcher(pageName);
         try {

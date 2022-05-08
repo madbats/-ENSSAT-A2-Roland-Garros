@@ -1,0 +1,45 @@
+@charset "ISO-8859-1";
+ul {
+	list-style-type: none;
+	padding:0px
+}
+
+.overcontainer {
+	display: flex;
+	justify-content: center;
+}
+
+.container {
+	/* We first create a flex layout context */
+  	display: flex;
+  	flex-flow: row wrap;
+  
+  /* Then we define how is distributed the remaining space */
+  	justify-content: flex-start;
+  
+  	padding: 0;
+  	margin: auto;
+  	width: 88vw;
+  	list-style: none;
+  	gap: 5px 5px;
+}
+
+.item {
+	/*
+	position:relative;
+	
+	
+	z-index: 1;
+	*/
+	margin: 0 -1px 12px 0;
+	background: #fff;
+	/*flex-grow: 1;*/
+	width: 21.8vw;
+}
+
+.card {
+	padding:1em;
+	display: flex;
+	transition: all .3s ease;
+	border: 1px solid #e1e1e1;
+}
