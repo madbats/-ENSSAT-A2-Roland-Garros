@@ -1,4 +1,4 @@
-package org.rolandGarros;
+package org.rolandGarros.model;
 
 import java.util.Collection;
 import java.util.Optional;
