@@ -25,7 +25,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 		Statement statement;
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery("select * from `info_team01_schema`.`Joueurs` where idJoueurs='"+id+"'");
+			ResultSet rs = statement.executeQuery("select * from `info_team01_schema`.`Joueur` where idJoueurs='"+id+"'");
 			while(rs.next()) {
 				joueur = Optional.of(new Joueur(
 						rs.getInt("idJoueurs"),
@@ -59,7 +59,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 		Statement statement;
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery(" select * from `info_team01_schema`.`Joueurs`");
+			ResultSet rs = statement.executeQuery(" select * from `info_team01_schema`.`Joueur`");
 			while(rs.next()) {
 				joueurs.add(new Joueur(
 						rs.getInt("idJoueurs"),
@@ -93,7 +93,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 		int retour = t.getIdJoueur();
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery("INSERT INTO `info_team01_schema`.`Joueurs`"
+			ResultSet rs = statement.executeQuery("INSERT INTO `info_team01_schema`.`Joueur`"
 					+ "(`idJoueurs`,"
 					+ "`nom`,"
 					+ "`prénom`,"
@@ -140,7 +140,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 		Statement statement;
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery("UPDATE `info_team01_schema`.`Joueurs`"
+			ResultSet rs = statement.executeQuery("UPDATE `info_team01_schema`.`Joueur`"
 					+ "SET"
 					+ "`idJoueurs` =`"+t.getIdJoueur()+"`,"
 					+ "`nom` =`"+t.getNom()+"`,"
@@ -171,7 +171,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 		int retour = t.getIdJoueur();
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery("DELETE FROM `info_team01_schema`.`Joueurs`"
+			ResultSet rs = statement.executeQuery("DELETE FROM `info_team01_schema`.`Joueur`"
 					+ "WHERE `idJoueurs` =`"+t.getIdJoueur()+";");
 		} catch (SQLException e) {
 			e.printStackTrace();
