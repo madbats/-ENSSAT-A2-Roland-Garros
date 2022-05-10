@@ -30,19 +30,12 @@ public class AfficheJoueurServlet extends HttpServlet {
 		Service<Joueur> joueurService = new JoueurServiceImpl();
 		Optional<Joueur> j = joueurService.get(id);
 		Joueur joueur = null;
-		if (j.isPresent())
+		if (j.isEmpty())
 		{
+		}else {
 			joueur = j.get();
 		}
-		
-		request.setAttribute("nom", joueur.getNom());
-		request.setAttribute("prenom", joueur.getPrenom());
-		request.setAttribute("pays", joueur.getNationnalite());
-		request.setAttribute("catégorie", joueur.getCategorie());
-		request.setAttribute("classement", joueur.getClassement());
-		request.setAttribute("main", joueur.getMain());
-		request.setAttribute("age", joueur.getAge());
-
+		request.setAttribute("joueur",joueur);
 		
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(pageName);
 		try {
