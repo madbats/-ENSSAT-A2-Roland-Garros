@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Coucou</title>
+<title>Ajouter un joueur</title>
 </head>
 <body>
-<form name="ajouter match" action="MatchAdd" method="post">
+<form name="ajouter joueur" action="PlayerAdd" method="post">
                  
         <h2 style="text-align:left">Ajouter Match</h2>
         <p style="text-align:left;">Identifiant : <input type="text" name="id" /></p>
