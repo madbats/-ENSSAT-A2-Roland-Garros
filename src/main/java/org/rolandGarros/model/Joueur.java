@@ -22,6 +22,26 @@ public class Joueur {
 		this.defaites = defaites;
 		this.categorie = categorie;
 	}
+	public Joueur(String prenom, String nom, int age, String lieuNaissance, float taille, float poids,
+			String nationnalite, int debutCarriere, String main, int classement, String entraineur, int salaire,
+			int victoires, int defaites,String categorie) {
+		super();
+		this.prenom = prenom;
+		this.nom = nom;
+		this.age = age;
+		this.lieuNaissance = lieuNaissance;
+		this.taille = taille;
+		this.poids = poids;
+		this.nationnalite = nationnalite;
+		this.debutCarriere = debutCarriere;
+		this.main = main;
+		this.classement = classement;
+		this.entraineur = entraineur;
+		this.salaire = salaire;
+		this.victoires = victoires;
+		this.defaites = defaites;
+		this.categorie = categorie;
+	}
 	
 	private int idJoueur;
 	private String prenom;

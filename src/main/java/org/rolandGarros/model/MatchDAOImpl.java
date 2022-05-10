@@ -61,18 +61,16 @@ public class MatchDAOImpl implements Dao<Match> {
 		int retour = t.getIdMatch();
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs=  statement.executeQuery("INSERT INTO `info_team01_schema`.`Matchs`"
-					+ "(`idMatch`,"
-					+ "`dureeSecond`,"
+			statement.executeUpdate("INSERT INTO `info_team01_schema`.`Match`"
+					+ "(`dureeSecond`,"
 					+ "`court`,"
 					+ "`etape`,"
 					+ "`idJ1`,"
-					+ "`idJ2`,)"
+					+ "`idJ2`)"
 					+ "VALUES"
-					+ "(" + t.getIdMatch() + ","
-					+ t.getDureeSecondes() + ","
+					+ "(" + t.getDureeSecondes() + ","
 					+ t.getCourt() + ","
-					+ "`"+t.getEtape() + "`,"
+					+ "'"+t.getEtape() + "',"
 					+ t.getIdJ1() + ","
 					+ t.getIdJ2() + ");");
 		} catch (SQLException e) {

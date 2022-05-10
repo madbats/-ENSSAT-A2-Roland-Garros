@@ -93,9 +93,8 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 		int retour = t.getIdJoueur();
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery("INSERT INTO `info_team01_schema`.`Joueurs`"
-					+ "(`idJoueurs`,"
-					+ "`nom`,"
+			statement.executeUpdate("INSERT INTO `info_team01_schema`.`Joueurs`"
+					+ "(`nom`,"
 					+ "`prénom`,"
 					+ "`age`,"
 					+ "`lieuNaissance`,"
@@ -111,8 +110,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 					+ "`defaites`,"
 					+ "`catégorie`)"
 					+ "VALUES"
-					+ "("+t.getIdJoueur() +","
-					+ "`"+t.getNom()+"`,"
+					+ "("+t.getNom()+"`,"
 					+ "`"+t.getPrenom()+"`,"
 					+ "`"+t.getAge()+"`,"
 					+ "`"+t.getLieuNaissance()+"`,"
@@ -140,7 +138,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 		Statement statement;
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery("UPDATE `info_team01_schema`.`Joueurs`"
+			statement.executeUpdate("UPDATE `info_team01_schema`.`Joueurs`"
 					+ "SET"
 					+ "`idJoueurs` =`"+t.getIdJoueur()+"`,"
 					+ "`nom` =`"+t.getNom()+"`,"
@@ -171,7 +169,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 		int retour = t.getIdJoueur();
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery("DELETE FROM `info_team01_schema`.`Joueurs`"
+			statement.executeUpdate("DELETE FROM `info_team01_schema`.`Joueurs`"
 					+ "WHERE `idJoueurs` =`"+t.getIdJoueur()+";");
 		} catch (SQLException e) {
 			e.printStackTrace();
