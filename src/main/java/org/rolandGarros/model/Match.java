@@ -11,6 +11,14 @@ public class Match {
 		this.idJ2 = idJ2;
 	}
 	
+	public Match(int dureeSecondes, int court, String etape, int idJ1, int idJ2) {
+		this.dureeSecondes = dureeSecondes;
+		this.court = court;
+		this.etape = etape;
+		this.idJ1 = idJ1;
+		this.idJ2 = idJ2;
+	}
+	
 	private int idMatch;
 	private int dureeSecondes;
 	private int court;

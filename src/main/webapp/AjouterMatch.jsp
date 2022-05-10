@@ -7,10 +7,9 @@
 <title>Coucou</title>
 </head>
 <body>
-<form name="ajouter match" action="MatchAdd" method="post">
+<form name="ajouter match" action="MatchServlet" method="post">
                  
         <h2 style="text-align:left">Ajouter Match</h2>
-        <p style="text-align:left;">Identifiant : <input type="text" name="id" /></p>
         <p style="text-align:left;">Durée : <input type="text" name="duree" /></p>
         <p style="text-align:left;">Court : <input type="text" name="court" /></p>
         <p style="text-align:left;">Etape : <input type="text" name="etape" /></p>
