@@ -25,11 +25,11 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 		Statement statement;
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery("select * from `info_team01_schema`.`Joueurs` where idJoueurs='"+id+"'");
+			ResultSet rs = statement.executeQuery("select * from `info_team01_schema`.`Joueur` where idJoueurs='"+id+"'");
 			while(rs.next()) {
 				joueur = Optional.of(new Joueur(
 						rs.getInt("idJoueurs"),
-						rs.getString("prénom"),
+						rs.getString("prï¿½nom"),
 						rs.getString("nom"),
 						rs.getInt("age"),
 						rs.getString("lieuNaissance"),
@@ -43,7 +43,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 						rs.getInt("gain"),
 						rs.getInt("victoire"),
 						rs.getInt("defaites"),
-						rs.getString("catégorie")));
+						rs.getString("catï¿½gorie")));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -59,11 +59,11 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 		Statement statement;
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery(" select * from `info_team01_schema`.`Joueurs`");
+			ResultSet rs = statement.executeQuery(" select * from `info_team01_schema`.`Joueur`");
 			while(rs.next()) {
 				joueurs.add(new Joueur(
 						rs.getInt("idJoueurs"),
-						rs.getString("prénom"),
+						rs.getString("prï¿½nom"),
 						rs.getString("nom"),
 						rs.getInt("age"),
 						rs.getString("lieuNaissance"),
@@ -77,7 +77,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 						rs.getInt("gain"),
 						rs.getInt("victoire"),
 						rs.getInt("defaites"),
-						rs.getString("catégorie")));
+						rs.getString("catï¿½gorie")));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -95,7 +95,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 			statement = connexion.createStatement();
 			statement.executeUpdate("INSERT INTO `info_team01_schema`.`Joueurs`"
 					+ "(`nom`,"
-					+ "`prénom`,"
+					+ "`prï¿½nom`,"
 					+ "`age`,"
 					+ "`lieuNaissance`,"
 					+ "`taille`,"
@@ -108,7 +108,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 					+ "`gain`,"
 					+ "`victoire`,"
 					+ "`defaites`,"
-					+ "`catégorie`)"
+					+ "`catï¿½gorie`)"
 					+ "VALUES"
 					+ "("+t.getNom()+"`,"
 					+ "`"+t.getPrenom()+"`,"
@@ -142,7 +142,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 					+ "SET"
 					+ "`idJoueurs` =`"+t.getIdJoueur()+"`,"
 					+ "`nom` =`"+t.getNom()+"`,"
-					+ "`prénom` =`"+t.getPrenom()+"`,"
+					+ "`prï¿½nom` =`"+t.getPrenom()+"`,"
 					+ "`age` =`"+t.getAge()+"`,"
 					+ "`lieuNaissance` =`"+t.getLieuNaissance()+"`,"
 					+ "`taille` =`"+t.getTaille()+"`,"
@@ -155,7 +155,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 					+ "`gain` =`"+t.getMain()+"`,"
 					+ "`victoire` =`"+t.getVictoires()+"`,"
 					+ "`defaites` =`"+t.getDefaites()+"`,"
-					+ "`catégorie` =`"+t.getCategorie()+"`"
+					+ "`catï¿½gorie` =`"+t.getCategorie()+"`"
 					+ "WHERE `idJoueurs` =`"+t.getIdJoueur()+"`;");
 		} catch (SQLException e) {
 			e.printStackTrace();
