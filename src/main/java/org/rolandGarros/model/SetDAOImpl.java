@@ -62,14 +62,12 @@ public class SetDAOImpl implements Dao<Set> {
 		try {
 			statement = connexion.createStatement();
 			ResultSet rs = statement.executeQuery("INSERT INTO `info_team01_schema`.`Set`"
-					+ "(`idSet`,"
-					+ "`idMatch`,"
+					+ "(`idMatch`,"
 					+ "`scoreJ1`,"
 					+ "`scoreJ2`,"
 					+ "`numero`)"
 					+ "VALUES"
-					+ "("+t.getIdSet() +","
-					+ "`"+t.getIdMatch() + "`,"
+					+ "(`" + t.getIdMatch() + "`,"
 					+ "`"+t.getScoreJ1() + "`,"
 					+ "`"+t.getScoreJ2() + "`,"
 					+ "`"+t.getNumero() + "`);");

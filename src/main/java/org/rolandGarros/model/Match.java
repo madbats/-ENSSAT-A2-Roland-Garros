@@ -1,5 +1,7 @@
 package org.rolandGarros.model;
 
+import java.util.Collection;
+
 public class Match {
 	public Match(int idMatch, int dureeSecondes, int court, String etape, int idJ1, int idJ2) {
 		super();
@@ -61,6 +63,12 @@ public class Match {
 	}
 	public void setIdJ2(int idJ2) {
 		this.idJ2 = idJ2;
+	}
+	
+	public Collection<Set> getSets() {
+		SetServiceImpl ss = new SetServiceImpl();
+		
+		return ss.getAll().stream().filter(s -> s.getIdMatch() == this.getIdMatch()).toList();
 	}
 	
 }
