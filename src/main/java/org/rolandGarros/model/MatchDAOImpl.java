@@ -38,7 +38,7 @@ public class MatchDAOImpl implements Dao<Match> {
 		Statement statement;
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery("select * from `info_team01_schema`.`Matchs`");
+			ResultSet rs = statement.executeQuery("select * from `info_team01_schema`.`Match`");
 			while(rs.next()) {
 				matchs.add(new Match(
 						rs.getInt("idMatch"),
@@ -86,7 +86,7 @@ public class MatchDAOImpl implements Dao<Match> {
 		Statement statement;
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery("UPDATE `info_team01_schema`.`Matchs`"
+			ResultSet rs = statement.executeQuery("UPDATE `info_team01_schema`.`Match`"
 					+ "SET"
 					+ "`idMatch` =`" + t.getIdMatch() +"`,"
 					+ "`dureeSecond` =`" + t.getDureeSecondes() +"`,"
@@ -107,7 +107,7 @@ public class MatchDAOImpl implements Dao<Match> {
 		int retour = t.getIdMatch();
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery("DELETE FROM `info_team01_schema`.`Matchs`"
+			ResultSet rs = statement.executeQuery("DELETE FROM `info_team01_schema`.`Match`"
 					+ "WHERE `idMatch` =`"+t.getIdMatch()+";");
 		} catch (SQLException e) {
 			e.printStackTrace();

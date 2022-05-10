@@ -29,7 +29,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 			while(rs.next()) {
 				joueur = Optional.of(new Joueur(
 						rs.getInt("idJoueurs"),
-						rs.getString("prï¿½nom"),
+						rs.getString("prénom"),
 						rs.getString("nom"),
 						rs.getInt("age"),
 						rs.getString("lieuNaissance"),
@@ -43,7 +43,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 						rs.getInt("gain"),
 						rs.getInt("victoire"),
 						rs.getInt("defaites"),
-						rs.getString("catï¿½gorie")));
+						rs.getString("catégorie")));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -63,7 +63,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 			while(rs.next()) {
 				joueurs.add(new Joueur(
 						rs.getInt("idJoueurs"),
-						rs.getString("prï¿½nom"),
+						rs.getString("prénom"),
 						rs.getString("nom"),
 						rs.getInt("age"),
 						rs.getString("lieuNaissance"),
@@ -77,7 +77,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 						rs.getInt("gain"),
 						rs.getInt("victoire"),
 						rs.getInt("defaites"),
-						rs.getString("catï¿½gorie")));
+						rs.getString("catégorie")));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -95,7 +95,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 			statement = connexion.createStatement();
 			statement.executeUpdate("INSERT INTO `info_team01_schema`.`Joueurs`"
 					+ "(`nom`,"
-					+ "`prï¿½nom`,"
+					+ "`prénom`,"
 					+ "`age`,"
 					+ "`lieuNaissance`,"
 					+ "`taille`,"
@@ -108,23 +108,23 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 					+ "`gain`,"
 					+ "`victoire`,"
 					+ "`defaites`,"
-					+ "`catï¿½gorie`)"
+					+ "`catégorie`)"
 					+ "VALUES"
-					+ "("+t.getNom()+"`,"
-					+ "`"+t.getPrenom()+"`,"
-					+ "`"+t.getAge()+"`,"
-					+ "`"+t.getLieuNaissance()+"`,"
-					+ "`"+t.getTaille()+"`,"
-					+ "`"+t.getPoids()+"`,"
-					+ "`"+t.getNationnalite()+"`,"
-					+ "`"+t.getDebutCarriere()+"`,"
-					+ "`"+t.getMain()+"`,"
-					+ "`"+t.getClassement()+"`,"
-					+ "`"+t.getEntraineur()+"`,"
-					+ "`"+t.getSalaire()+"`,"
-					+ "`"+t.getVictoires()+"`,"
-					+ "`"+t.getDefaites()+"`,"
-					+ "`"+t.getCategorie()+"`);");
+					+ "("+t.getNom()+"',"
+					+ "'"+t.getPrenom()+"',"
+					+ "'"+t.getAge()+"',"
+					+ "'"+t.getLieuNaissance()+"',"
+					+ "'"+t.getTaille()+"',"
+					+ "'"+t.getPoids()+"',"
+					+ "'"+t.getNationnalite()+"',"
+					+ "'"+t.getDebutCarriere()+"',"
+					+ "'"+t.getMain()+"',"
+					+ "'"+t.getClassement()+"',"
+					+ "'"+t.getEntraineur()+"',"
+					+ "'"+t.getSalaire()+"',"
+					+ "'"+t.getVictoires()+"',"
+					+ "'"+t.getDefaites()+"',"
+					+ "'"+t.getCategorie()+"');");
 		} catch (SQLException e) {
 			retour = -1;
 			e.printStackTrace();
@@ -140,23 +140,23 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 			statement = connexion.createStatement();
 			statement.executeUpdate("UPDATE `info_team01_schema`.`Joueurs`"
 					+ "SET"
-					+ "`idJoueurs` =`"+t.getIdJoueur()+"`,"
-					+ "`nom` =`"+t.getNom()+"`,"
-					+ "`prï¿½nom` =`"+t.getPrenom()+"`,"
-					+ "`age` =`"+t.getAge()+"`,"
-					+ "`lieuNaissance` =`"+t.getLieuNaissance()+"`,"
-					+ "`taille` =`"+t.getTaille()+"`,"
-					+ "`poids` =`"+t.getPoids()+"`,"
-					+ "`nationnalite` =`"+t.getNationnalite()+"`,"
-					+ "`debutCarriere` =`"+t.getDebutCarriere()+"`,"
-					+ "`main` =`"+t.getMain()+"`,"
-					+ "`classement` =`"+t.getClass()+"`,"
-					+ "`entraineur` =`"+t.getEntraineur()+"`,"
-					+ "`gain` =`"+t.getMain()+"`,"
-					+ "`victoire` =`"+t.getVictoires()+"`,"
-					+ "`defaites` =`"+t.getDefaites()+"`,"
-					+ "`catï¿½gorie` =`"+t.getCategorie()+"`"
-					+ "WHERE `idJoueurs` =`"+t.getIdJoueur()+"`;");
+					+ "`idJoueurs` =`"+t.getIdJoueur()+"',"
+					+ "`nom` =`"+t.getNom()+"',"
+					+ "`prénom` =`"+t.getPrenom()+"',"
+					+ "`age` =`"+t.getAge()+"',"
+					+ "`lieuNaissance` =`"+t.getLieuNaissance()+"',"
+					+ "`taille` =`"+t.getTaille()+"',"
+					+ "`poids` =`"+t.getPoids()+"',"
+					+ "`nationnalite` =`"+t.getNationnalite()+"',"
+					+ "`debutCarriere` =`"+t.getDebutCarriere()+"',"
+					+ "`main` =`"+t.getMain()+"',"
+					+ "`classement` =`"+t.getClass()+"',"
+					+ "`entraineur` =`"+t.getEntraineur()+"',"
+					+ "`gain` =`"+t.getMain()+"',"
+					+ "`victoire` =`"+t.getVictoires()+"',"
+					+ "`defaites` =`"+t.getDefaites()+"',"
+					+ "`catégorie` =`"+t.getCategorie()+"'"
+					+ "WHERE `idJoueurs` =`"+t.getIdJoueur()+"';");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

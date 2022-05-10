@@ -1,6 +1,7 @@
 package org.rolandGarros.model;
 
 public class Set {
+	private int winner = -1;
 	public Set(int idSet, int idMatch, int scoreJ1, int scoreJ2, int numero) {
 		super();
 		this.idSet = idSet;
@@ -45,5 +46,11 @@ public class Set {
 	}
 	public void setNumero(int numero) {
 		this.numero = numero;
+	}
+	public boolean isJ1Winner() {
+		if( this.winner==-1) {
+			this.winner = (this.getScoreJ1()>this.getScoreJ2())? 1:2;
+		}
+		return (this.winner==1);
 	}
 }
