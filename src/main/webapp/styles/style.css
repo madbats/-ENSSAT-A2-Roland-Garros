@@ -7,14 +7,14 @@
 
 h1 {
 	color: RGBa(211,82,32,1);
-    background-color: RGBa(5,72,47,1);
+    background-color: RGBa(5,72,47,1); /* vert */
 	
 }
 
 nav{
     width: 100%;
     margin: 0 auto;
-    background-color: RGBa(5,72,47,1);
+    background-color: RGBa(5,72,47,1); /* vert */
     position: sticky;
     top: 0px;
 }
@@ -45,13 +45,14 @@ nav a{
 }
 
 nav a:hover{
-    color: RGBa(211,82,32,1) ;/* orange*/
+	border-bottom :RGBa(211,82,32,1) ;
+    color: RGBa(211,82,32,1) ;/* orange */
 }
 
 .sous{
     display: none;
     box-shadow: 0px 1px 2px #CCC;
-    background-color: RGBa(5,72,47,1);
+    background-color: RGBa(5,72,47,1); /* vert */
     position: absolute;
     width: 100%;
     z-index: 1000;
