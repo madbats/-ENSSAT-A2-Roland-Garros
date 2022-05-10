@@ -5,8 +5,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Gestion des joueurs</title>
-</head>
-<body>
+<%@include file="includes/header.jsp"%>
+<main>
 <form name="ajouter un joueurs" action="PlayerAdd" method="get">
 <p style="text-align:left;width:75%;margin:auto;"><input type="submit" name="Ajouter un joueur" value="AjouterJoueur"/></p>
 </form>
@@ -16,5 +16,6 @@
 <form name="supprimer un joueur" action="PlayerDelete" method="get">
 <p style="text-align:left;width:75%;margin:auto;"><input type="submit" name="Supprimer un joueur" value="SupprimerJoueur"/></p>
 </form>
-</body>
+</main>
+<%@include file="includes/footer.jsp"%>
 </html>

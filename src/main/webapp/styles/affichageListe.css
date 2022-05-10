@@ -45,14 +45,19 @@ ul {
 	color: #000;
 	text-decoration: none;
 }
-
-
-.item a:hover{
+.item a:hover {
 	background-color: #f3f1f1;
 	text-decoration: none;
 	background: #f3f1f1;
 }
 
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+	border: none;
+	width: 100%;
+	table-layout: fixed;
+}
 
 /* Dropdown Button */
 .dropbtn {
@@ -87,8 +92,8 @@ ul {
 	display: block;
 }
 
-.test{
-	display:none;
+.test {
+	display: none;
 }
 
 /* Change color of dropdown links on hover */
@@ -104,4 +109,20 @@ ul {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
 	background-color: #3e8e41;
+}
+
+.row {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.win {
+	color: #01503d;
+	font-weight: 800;
+}
+
+.loose {
+	color: #aaa;
 }

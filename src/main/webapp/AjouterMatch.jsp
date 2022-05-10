@@ -5,8 +5,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Coucou</title>
-</head>
-<body>
+<%@include file="includes/header.jsp"%>
+<main>
 <form name="ajouter match" action="MatchServlet" method="post">
                  
         <h2 style="text-align:left">Ajouter Match</h2>
@@ -19,5 +19,6 @@
         <p style="text-align:left;width:75%;margin:auto;"><input type="submit" name="Valider" value="Valider"/></p>
          	
        	</form>
-</body>
+</main>
+<%@include file="includes/footer.jsp"%>
 </html>

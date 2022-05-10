@@ -15,8 +15,9 @@ int age = joueur.getAge();
 <head>
 <meta charset="UTF-8">
 <title>Fiche Joueur</title>
-</head>
-<body>
+<%@include file="includes/header.jsp"%>
+<main>
+
 	<ul>
 		<li id="nom">Nom: <%=nom %></li>
 		<li id="prenom">Prenom: <%=prenom %></li>
@@ -26,5 +27,7 @@ int age = joueur.getAge();
 		<li id="main">Main: <%=main %></li>
 		<li id="age">Age: <%=age %></li>
 	</ul>
-</body>
+
+</main>
+<%@include file="includes/footer.jsp"%>
 </html>

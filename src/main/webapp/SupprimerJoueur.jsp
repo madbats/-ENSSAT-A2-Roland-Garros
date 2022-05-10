@@ -5,8 +5,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Supprimer un joueur</title>
-</head>
-<body>
+<%@include file="includes/header.jsp"%>
+<main>
 
-</body>
+</main>
+<%@include file="includes/footer.jsp"%>
 </html>
