@@ -1,5 +1,7 @@
 package org.rolandGarros.model;
 
+import java.util.Collection;
+
 public class Joueur {
 	public Joueur(int idJoueur, String prenom, String nom, int age, String lieuNaissance, float taille, float poids,
 			String nationnalite, int debutCarriere, String main, int classement, String entraineur, int salaire,
@@ -156,5 +158,12 @@ public class Joueur {
 	}
 	public void setCategorie(String categorie) {
 		this.categorie = categorie;
+	}
+	
+	public Collection<Match> getMatchs() {
+		MatchServiceImpl ms = new MatchServiceImpl();
+		
+		return ms.getAll().stream().filter(m-> m.getIdJ1() == this.getIdJoueur() || m.getIdJ2() == this.getIdJoueur()).toList();
+		
 	}
 }
