@@ -2,6 +2,8 @@ package org.rolandGarros.model;
 
 import java.util.Collection;
 
+import org.rolandGarros.controller.JoueurServiceImpl;
+
 public class Match {
 	public Match(int idMatch, int dureeSecondes, int court, String etape, int idJ1, int idJ2) {
 		super();
@@ -69,6 +71,12 @@ public class Match {
 		SetServiceImpl ss = new SetServiceImpl();
 		
 		return ss.getAll().stream().filter(s -> s.getIdMatch() == this.getIdMatch()).toList();
+	}
+	
+	public Collection<Joueur> getJoueurs() {
+		JoueurServiceImpl js = new JoueurServiceImpl();
+		
+		return js.getAll().stream().filter(j -> j.getIdJoueur() == this.getIdJ1() || j.getIdJoueur() == this.getIdJ2()).toList();
 	}
 	
 }

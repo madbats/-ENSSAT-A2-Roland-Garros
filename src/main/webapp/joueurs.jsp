@@ -30,6 +30,7 @@ List<Joueur> listJoueurs = (List<Joueur>) request.getAttribute("listJoueurs");
 			<ul class="container">
 				<%
 				for (Joueur joueur : listJoueurs) {
+					int id = joueur.getIdJoueur();
 					String prenom = joueur.getPrenom();
 					String nom = joueur.getNom();
 					String sex = joueur.getCategorie();
@@ -38,7 +39,8 @@ List<Joueur> listJoueurs = (List<Joueur>) request.getAttribute("listJoueurs");
 					int age = joueur.getAge();
 					String main = joueur.getMain();
 				%>
-				<li class="item"><a class="card">
+				<li class="item">
+				<a href="joueur?id=<%= id %>" class="card">
 						<div style="margin-top: 5px;">
 							<h3><%=prenom%>
 								<%=nom%></h3>
