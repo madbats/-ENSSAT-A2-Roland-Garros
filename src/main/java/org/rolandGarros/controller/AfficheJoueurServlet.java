@@ -35,7 +35,14 @@ public class AfficheJoueurServlet extends HttpServlet {
 			joueur = j.get();
 		}
 		
-		request.setAttribute("joueur", joueur);
+		request.setAttribute("nom", joueur.getNom());
+		request.setAttribute("prenom", joueur.getPrenom());
+		request.setAttribute("pays", joueur.getNationnalite()N);
+		request.setAttribute("catégorie", joueur.getCategorie());
+		request.setAttribute("classement", joueur.getClassement());
+		request.setAttribute("main", joueur.getMain());
+		request.setAttribute("age", joueur.getAge());
+
 		
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(pageName);
 		try {
