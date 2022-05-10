@@ -32,7 +32,7 @@
       </ul>
     </li>
     <li><a href="#"> Authentification </a></li>
-    <li><a href="#"> A propos </a></li>
+    <li><a href="#"> CGU </a></li>
   </ul>
 </nav>
 
@@ -43,7 +43,10 @@
 </div>
 
 <!-- début footer -->
-<div> Copyright </div>
+<div> ©2022 - tous droits réservés
+Fédération Française de Tennis
+
+Mentions légales et conditions générales d'utilisation </div>
 <!-- fin footer -->
 </body>
 </html>

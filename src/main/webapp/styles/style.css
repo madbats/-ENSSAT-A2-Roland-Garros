@@ -6,8 +6,19 @@
 }
 
 h1 {
-	color: RGBa(211,82,32,1);
+	color: RGBa(211,82,32,1); /* orange */
     background-color: RGBa(5,72,47,1); /* vert */
+	text-align: center;
+	
+}
+
+nav b {
+	text-decoration: none;
+	box-shadow: none;
+	color: RGBa(211,82,32,1); /* orange */
+    background-color: RGBa(5,72,47,1); /* vert */
+	list-style-type: none;
+	text-align: center;
 	
 }
 
@@ -45,8 +56,8 @@ nav a{
 }
 
 nav a:hover{
-	border-bottom :RGBa(211,82,32,1) ;
-    color: RGBa(211,82,32,1) ;/* orange */
+	border-bottom :RGBa(211,82,32,1) ; /* orange */
+    color: RGBa(211,82,32,1) ; /* orange */
 }
 
 .sous{
