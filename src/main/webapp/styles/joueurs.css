@@ -42,6 +42,15 @@ ul {
 	display: flex;
 	transition: all .3s ease;
 	border: 1px solid #e1e1e1;
+	color: #000;
+	text-decoration: none;
+}
+
+
+.item a:hover{
+	background-color: #f3f1f1;
+	text-decoration: none;
+	background: #f3f1f1;
 }
 
 

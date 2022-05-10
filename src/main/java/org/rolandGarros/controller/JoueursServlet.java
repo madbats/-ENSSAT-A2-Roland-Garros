@@ -1,9 +1,7 @@
 package org.rolandGarros.controller;
 
-import java.awt.print.Book;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.rolandGarros.model.Joueur;
