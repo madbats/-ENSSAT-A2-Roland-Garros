@@ -93,7 +93,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 		int retour = t.getIdJoueur();
 		try {
 			statement = connexion.createStatement();
-			statement.executeUpdate("INSERT INTO `info_team01_schema`.`Joueurs`"
+			statement.executeUpdate("INSERT INTO `info_team01_schema`.`Joueur`"
 					+ "(`nom`,"
 					+ "`prénom`,"
 					+ "`age`,"
@@ -110,7 +110,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 					+ "`defaites`,"
 					+ "`catégorie`)"
 					+ "VALUES"
-					+ "("+t.getNom()+"',"
+					+ "('"+t.getNom()+"',"
 					+ "'"+t.getPrenom()+"',"
 					+ "'"+t.getAge()+"',"
 					+ "'"+t.getLieuNaissance()+"',"

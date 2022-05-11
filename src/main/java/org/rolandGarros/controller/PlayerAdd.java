@@ -4,6 +4,7 @@ import java.io.Console;
 import java.io.IOException;
 
 import org.rolandGarros.model.Joueur;
+import org.rolandGarros.controller.JoueurServiceImpl;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -13,6 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/PlayerAdd")
 public class PlayerAdd extends jakarta.servlet.http.HttpServlet {
+	private JoueurServiceImpl service = new JoueurServiceImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -34,7 +36,7 @@ public class PlayerAdd extends jakarta.servlet.http.HttpServlet {
 		String nom = req.getParameter("nom");
 		int age = Integer.parseInt(req.getParameter("age"));
 		String lieuNaissance = req.getParameter("lieu_naissance");
-		int taille = Integer.parseInt(req.getParameter("taille"));
+		float taille = Float.parseFloat(req.getParameter("taille"));
 		int poids = Integer.parseInt(req.getParameter("poids"));
 		String nationnalite = req.getParameter("nationnalite");
 		int debutCarriere = Integer.parseInt(req.getParameter("debut_carriere"));
@@ -48,6 +50,8 @@ public class PlayerAdd extends jakarta.servlet.http.HttpServlet {
 		
 		Joueur joueur = new Joueur(id, prenom, nom, age, lieuNaissance, taille, poids, nationnalite, debutCarriere, main, classement, entraineur, salaire, victoires, defaites, categorie);
 		System.out.println(joueur);
+		
+		service.save(joueur);
 		
 	}
 	
