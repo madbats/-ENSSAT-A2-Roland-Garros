@@ -1,14 +1,49 @@
 <%@ page language="java"%>
 <%@ page import="org.rolandGarros.model.Joueur"%>
 <%
-Joueur joueur = (Joueur) request.getAttribute("joueur");
-String nom = joueur.getNom();
-String prenom = joueur.getPrenom();
-String pays = joueur.getNationnalite();
-String categorie = joueur.getCategorie();
-int classement = joueur.getClassement();
-String main = joueur.getMain();
-int age = joueur.getAge();
+String nom = null;
+String prenom = null;
+String pays = null;
+String categorie = null;
+int classement = 0;
+String main = null;
+int age = 0;
+String error = null;
+if(request.getAttribute("error")!=null)
+{
+	error = (String) request.getAttribute("error");
+}
+else
+{
+	Joueur joueur = (Joueur) request.getAttribute("joueur");
+	nom = joueur.getNom();
+	if(nom==null)
+	{
+		nom="inconnu";
+	}
+	prenom = joueur.getPrenom();
+	if(prenom==null)
+	{
+		prenom="inconnu";
+	}
+	pays = joueur.getNationnalite();
+	if(pays==null)
+	{
+		pays="inconnu";
+	}
+	categorie = joueur.getCategorie();
+	if(categorie==null)
+	{
+		categorie="inconnu";
+	}
+	classement = joueur.getClassement();
+	main = joueur.getMain();
+	if(main==null)
+	{
+		main="inconnu";
+	}
+	age = joueur.getAge();
+}
 %>
 <!DOCTYPE html>
 <html>
@@ -27,6 +62,8 @@ int age = joueur.getAge();
 		<li id="main">Main: <%=main %></li>
 		<li id="age">Age: <%=age %></li>
 	</ul>
+	
+	<div><%=error %></div>
 
 </main>
 <%@include file="includes/footer.jsp"%>
