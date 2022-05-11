@@ -32,18 +32,28 @@ public class AfficheJoueurServlet extends HttpServlet {
 		Joueur joueur = null;
 		if (j.isEmpty())
 		{
+			request.setAttribute("error", "Le joueur n'a pas été renseigné!");
+			
+			RequestDispatcher rd = getServletContext().getRequestDispatcher(pageName);
+			try {
+				rd.forward(request,response);
+			} catch (ServletException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}else {
 			joueur = j.get();
-		}
-		request.setAttribute("joueur",joueur);
-		
-		RequestDispatcher rd = getServletContext().getRequestDispatcher(pageName);
-		try {
-			rd.forward(request,response);
-		} catch (ServletException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+			request.setAttribute("joueur",joueur);
+			
+			RequestDispatcher rd = getServletContext().getRequestDispatcher(pageName);
+			try {
+				rd.forward(request,response);
+			} catch (ServletException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
