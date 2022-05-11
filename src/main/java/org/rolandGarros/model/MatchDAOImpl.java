@@ -15,7 +15,7 @@ public class MatchDAOImpl implements Dao<Match> {
 		Statement statement;
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery("select * from `info_team01_schema`.`Matchs` where idMatchs='"+id+"'");
+			ResultSet rs = statement.executeQuery("select * from `info_team01_schema`.`Match` where idMatchs='"+id+"'");
 			while(rs.next()) {
 				match = Optional.of(new Match(
 						rs.getInt("idMatch"),
