@@ -23,12 +23,18 @@ public class JoueursServlet extends HttpServlet {
 		sort = (sort!=null)? sort:"nom";
 		Service<Joueur> joueurService = new JoueurServiceImpl();
 		List<Joueur> listJoueurs = new ArrayList<Joueur>(joueurService.getAll());
+		
 		switch(sort) {
 			case "nom": listJoueurs.sort((j1,j2)->nomComparerer(j1,j2));
+				break;
 			case "classement": listJoueurs.sort((j1,j2)->classementComparerer(j1,j2));
+			break;
 			case "sex": listJoueurs.sort((j1,j2)->sexComparerer(j1,j2));
+			break;
 			case "victoire": listJoueurs.sort((j1,j2)->victoireComparerer(j1,j2));
+			break;
 			case "duree": listJoueurs.sort((j1,j2)->dureeComparerer(j1,j2));
+			break;
 		}
         String pageName="/joueurs.jsp";
         request.setAttribute("listJoueurs", listJoueurs);
