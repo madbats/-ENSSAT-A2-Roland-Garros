@@ -2,7 +2,14 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/style.css" >
 </head>
 <header>
-<a href="home" style="text-decoration: none;"><div class="b"> <h1>Roland-Garros </h1></div></a>
+<link rel="icon" href="pictures/roland-garros-logo.ico" type="image/icon type">
+
+
+<div class="beta">
+  <img src="pictures/roland-garros.svg"/>
+  <a href="home" style="text-decoration: none;"> <h1>  Roland-Garros </h1></a>
+  
+</div>
 
 <nav>
   <ul>

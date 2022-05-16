@@ -2,7 +2,7 @@
 *{
     margin: 0px;
     padding: 0px;
-    font-family: Avenir, sans-serif;
+    font-family: Verdana;
 }
 
 h1 {
@@ -26,6 +26,30 @@ nav b {
 {
    text-decoration: none; 
    background-color: none;
+}
+
+beta{
+	height: 64 px;
+}
+
+
+.beta img
+{
+	float: left;
+}
+
+.beta h1
+{
+	font-size: 400%;
+	color: RGBa(211,82,32,1); /* orange */
+    background-color: RGBa(5,72,47,1); /* vert */
+	text-align: center;
+	text-decoration: none; 
+}
+
+.footer
+{
+   color: black;
 }
 
 nav{
@@ -98,4 +122,20 @@ nav > ul li:hover .sous{
 .conteneur{
   margin: 50px 20px;
   height: 1500px;
+}
+
+.fondfooter{
+	background-color: RGBa(5,72,47,1);
+}
+.contentfooter{
+	color: RGBa(211,82,32,1);
+	text-align: center;
+}
+
+.header img {
+  float: left;
+}
+
+.header h1 {
+  position: relative;
 }
