@@ -7,7 +7,7 @@
 <title>Ajouter un joueur</title>
 <%@include file="includes/header.jsp"%>
 <main>
-<form name="ajouter joueur" action="PlayerAdd" method="post">
+<form name="ajouter joueur" action="EditJoueurs" method="post">
                  
         <h2 style="text-align:left">Ajouter Joueur</h2>
         <p style="text-align:left;">Identifiant : <input type="text" name="id" /></p>

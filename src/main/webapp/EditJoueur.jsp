@@ -23,6 +23,11 @@ List<Joueur> listJoueurs = (List<Joueur>) request.getAttribute("listJoueurs");
 			</div>
 		</div>
 		<ul class="container">
+			<li class="item"><a href="./PlayerAdd" class="card">
+				<div style="margin-top: 5px;">
+					Add a new player
+				</div>
+			</a></li>
 			<%
 			for (Joueur joueur : listJoueurs) {
 				int id = joueur.getIdJoueur();
@@ -51,8 +56,8 @@ List<Joueur> listJoueurs = (List<Joueur>) request.getAttribute("listJoueurs");
 								<%=main%></p>
 						</div>
 						<div style="display:flex">
-							<form action="/UpdatePlayer"><button type="submit">Update</button></form>
-							<form action="/DeletePlayer"><button type="submit">Delete</button></form>
+							<form action="/PlayerUpdate"><button type="submit">Update</button></form>
+							<form action="/PlayerDelete"><button type="submit">Delete</button></form>
 						</div>
 					</div>
 			</a></li>
