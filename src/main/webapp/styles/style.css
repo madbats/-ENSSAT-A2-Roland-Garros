@@ -9,17 +9,23 @@ h1 {
 	color: RGBa(211,82,32,1); /* orange */
     background-color: RGBa(5,72,47,1); /* vert */
 	text-align: center;
+	text-decoration: none; 
 	
 }
 
 nav b {
 	text-decoration: none;
 	box-shadow: none;
-	color: RGBa(211,82,32,1); /* orange */
     background-color: RGBa(5,72,47,1); /* vert */
 	list-style-type: none;
 	text-align: center;
 	
+}
+
+.b
+{
+   text-decoration: none; 
+   background-color: none;
 }
 
 nav{

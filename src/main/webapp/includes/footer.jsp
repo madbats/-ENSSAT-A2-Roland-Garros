@@ -1,9 +1,11 @@
 </body>
 <footer>
 <!-- début footer -->
-<div> ©2022 - tous droits réservés
-Fédération Française de Tennis
 
-Mentions légales et conditions générales d'utilisation </div>
+<div> ©2022 - tous droits réservés </div>
+<div>Fédération Française de Tennis </div>
+
+<a href="cgu" style="text-decoration: none;"> <div> Conditions générales d'utilisation </div></a>
+
 <!-- fin footer -->
 </footer>
