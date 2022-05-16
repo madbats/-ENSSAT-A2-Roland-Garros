@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/style.css" >
 </head>
 <header>
-<h1>Roland-Garros</h1>
+<a href="home" style="text-decoration: none;"><div class="b"> <h1>Roland-Garros </h1></div></a>
 
 <nav>
   <ul>
