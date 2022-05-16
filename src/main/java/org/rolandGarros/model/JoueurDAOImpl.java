@@ -138,7 +138,7 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 		Statement statement;
 		try {
 			statement = connexion.createStatement();
-			statement.executeUpdate("UPDATE `info_team01_schema`.`Joueurs`"
+			statement.executeUpdate("UPDATE `info_team01_schema`.`Joueur`"
 					+ "SET"
 					+ "`idJoueurs` =`"+t.getIdJoueur()+"',"
 					+ "`nom` =`"+t.getNom()+"',"
@@ -166,11 +166,10 @@ public class JoueurDAOImpl implements Dao<Joueur> {
 	public void delete(Joueur t) {
 		Connection connexion = DBManager.getInstance().getConnection();
 		Statement statement;
-		int retour = t.getIdJoueur();
 		try {
 			statement = connexion.createStatement();
-			statement.executeUpdate("DELETE FROM `info_team01_schema`.`Joueurs`"
-					+ "WHERE `idJoueurs` =`"+t.getIdJoueur()+";");
+			statement.executeUpdate("DELETE FROM `info_team01_schema`.`Joueur`"
+					+ "WHERE `idJoueurs` ='"+t.getIdJoueur()+"';");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

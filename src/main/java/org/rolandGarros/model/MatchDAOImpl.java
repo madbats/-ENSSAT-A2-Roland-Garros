@@ -15,7 +15,7 @@ public class MatchDAOImpl implements Dao<Match> {
 		Statement statement;
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery("select * from `info_team01_schema`.`Match` where idMatchs='"+id+"'");
+			ResultSet rs = statement.executeQuery("select * from `info_team01_schema`.`Match` where idMatch='"+id+"'");
 			while(rs.next()) {
 				match = Optional.of(new Match(
 						rs.getInt("idMatch"),
@@ -104,11 +104,10 @@ public class MatchDAOImpl implements Dao<Match> {
 	public void delete(Match t) {
 		Connection connexion = DBManager.getInstance().getConnection();
 		Statement statement;
-		int retour = t.getIdMatch();
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery("DELETE FROM `info_team01_schema`.`Match`"
-					+ "WHERE `idMatch` =`"+t.getIdMatch()+";");
+			statement.executeUpdate("DELETE FROM `info_team01_schema`.`Match`"
+					+ "WHERE `idMatch` ='"+t.getIdMatch()+"';");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

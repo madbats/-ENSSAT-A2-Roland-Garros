@@ -27,6 +27,7 @@ int idj2 = match.getIdJ2();
 		<li id="idj1">Joueur 1: <%=idj1 %></li>
 		<li id="idj2">Joueur 2: <%=idj2 %></li>
 	</ul>
+	<a href= "MatchDelete?id=<%=id%>"><input type="submit" name="Valider" value="Valider"/></a>
 
 </main>
 <%@include file="includes/footer.jsp"%>
