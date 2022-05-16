@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/PlayerUpdate")
 public class PlayerUpdate extends jakarta.servlet.http.HttpServlet{
+	private JoueurServiceImpl service = new JoueurServiceImpl();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String pageName = "/ModifierJoueur.jsp";
@@ -46,6 +47,6 @@ public class PlayerUpdate extends jakarta.servlet.http.HttpServlet{
 		
 		Joueur joueur = new Joueur(id, prenom, nom, age, lieuNaissance, taille, poids, nationnalite, debutCarriere, main, classement, entraineur, salaire, victoires, defaites, categorie);
 		System.out.println(joueur);
-		
+		service.save(joueur);
 	}
 }

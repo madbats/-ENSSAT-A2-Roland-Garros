@@ -9,7 +9,7 @@
 <main>
 <form name="ajouter joueur" action="PlayerAdd" method="post">
                  
-        <h2 style="text-align:left">Ajouter Match</h2>
+        <h2 style="text-align:left">Ajouter Joueur</h2>
         <p style="text-align:left;">Identifiant : <input type="text" name="id" /></p>
         <p style="text-align:left;">Prénom : <input type="text" name="prenom" /></p>
         <p style="text-align:left;">Nom : <input type="text" name="nom" /></p>
