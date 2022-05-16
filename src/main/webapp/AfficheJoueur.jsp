@@ -8,7 +8,7 @@ String categorie = null;
 int classement = 0;
 String main = null;
 int age = 0;
-String error = null;
+String error = "";
 if(request.getAttribute("error")!=null)
 {
 	error = (String) request.getAttribute("error");
@@ -32,7 +32,15 @@ else
 		pays="inconnu";
 	}
 	categorie = joueur.getCategorie();
-	if(categorie==null)
+	if(categorie.equals("H"))
+	{
+		categorie = "Homme";
+	}
+	else if(categorie.equals("F"))
+	{
+		categorie = "Femme";
+	}
+	else
 	{
 		categorie="inconnu";
 	}
@@ -50,12 +58,21 @@ else
 <head>
 <meta charset="UTF-8">
 <title>Fiche Joueur</title>
-<%@include file="includes/header.jsp"%>
-<main>
+<style>
+ul.info{
+ list-style-type: square;
+ margin: 50px;	
+ }
+ul.info li{
+padding: 20px
+}
 
-	<ul>
-		<li id="nom">Nom: <%=nom %></li>
-		<li id="prenom">Prenom: <%=prenom %></li>
+</style>
+<%@include file="includes/header.jsp"%>
+
+
+	<ul class="info">
+		<li id="nom" style="padding-left:0px;list-style-type:none;font-size:30px;font-weight:bold;text-transform:uppercase;"> <%=prenom %>  <%=nom %></li>
 		<li id="pays">Nationnalite: <%=pays %></li>
 		<li id="catégorie">Catégorie: <%=categorie %></li>
 		<li id="classement">Classement mondial: <%=classement %></li>
@@ -65,6 +82,6 @@ else
 	
 	<div><%=error %></div>
 
-</main>
+</body>
 <%@include file="includes/footer.jsp"%>
 </html>

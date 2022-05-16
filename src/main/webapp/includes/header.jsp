@@ -27,13 +27,18 @@
     </li>
     <li class="deroulant"><a href="#"> Statistiques &ensp;</a>
       <ul class="sous">
-        <li><a href="#"> Nombre de matchs remportés </a></li>
-        <li><a href="#"> Durée de jeu </a></li>
-        <li><a href="#"> Catégorie </a></li>
+        <li><a href="#"> Nombre de matchs remportï¿½s </a></li>
+        <li><a href="#"> Duree de jeu </a></li>
+        <li><a href="#"> Categorie </a></li>
       </ul>
     </li>
-    <li><a href="#"> Authentification </a></li>
-    <li><a href="#"> CGU </a></li>
+    <%if(request.getUserPrincipal()!=null) { %>
+    	<li></li>
+       	<li><a href="logout"> Logout </a></li>
+    <%}else{ %>
+    	<li></li>
+    	<li></li>
+    <%} %>
   </ul>
 </nav>
 

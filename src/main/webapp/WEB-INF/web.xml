@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+        http://java.sun.com/xml/ns/j2ee/web-app_3_1.xsd" version="3.1">
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Gestion Matchs</web-resource-name>
+			<url-pattern>/mm/*</url-pattern>
+			<url-pattern>/mm</url-pattern>
+		</web-resource-collection>
+			<http-method>GET</http-method>
+    		<http-method>POST</http-method>
+		<auth-constraint>
+			<role-name>matcheMaker</role-name>
+		</auth-constraint>
+		<!--<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>-->
+	</security-constraint>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Gestion Joueurs</web-resource-name>
+			<url-pattern>/jm/*</url-pattern>
+			<url-pattern>/jm</url-pattern>
+		</web-resource-collection>
+			<http-method>GET</http-method>
+    		<http-method>POST</http-method>
+		<auth-constraint>
+			<role-name>joueurMaker</role-name>
+		</auth-constraint>
+		<!--<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>-->
+	</security-constraint>
+
+	
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <realm-name>file-realm</realm-name>
+    <form-login-config>
+        <form-login-page>/logon.jsp</form-login-page>
+        <form-error-page>/logonError.jsp</form-error-page>
+    </form-login-config>
+  </login-config>
+
+	<security-role>
+		<role-name>matcheMaker</role-name>
+		<role-name>joueurMaker</role-name>
+	</security-role>
+	
+	<error-page>
+    <!-- Forbidden directory listing -->
+    <error-code>403</error-code>
+    <location>/forbidden-error.jsp</location>
+</error-page>
+</web-app>
