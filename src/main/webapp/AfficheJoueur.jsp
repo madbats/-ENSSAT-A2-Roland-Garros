@@ -1,14 +1,25 @@
 <%@ page language="java"%>
 <%@ page import="org.rolandGarros.model.Joueur"%>
 <%
+int id = -1;
 String nom = null;
 String prenom = null;
 String pays = null;
 String categorie = null;
-int classement = 0;
+int classement = -1;
 String main = null;
-int age = 0;
+int age = -1;
+String lieuNaissance = null;
+float taille = -1;
+float poids = -1;
+String nationalite = null;
+int debutCarriere = -1;
+String entraineur = null;
+int salaire = -1;
+int victoires = -1;
+int defaites = -1;
 String error = "";
+
 if(request.getAttribute("error")!=null)
 {
 	error = (String) request.getAttribute("error");
@@ -51,6 +62,24 @@ else
 		main="inconnu";
 	}
 	age = joueur.getAge();
+	id = joueur.getIdJoueur();
+	lieuNaissance = joueur.getLieuNaissance();
+	if(lieuNaissance==null)
+	{
+		lieuNaissance="inconnu";
+	}
+	taille = joueur.getTaille();
+	poids = joueur.getPoids();
+	debutCarriere = joueur.getDebutCarriere();
+	entraineur = joueur.getEntraineur();
+	if(entraineur == null)
+	{
+		entraineur = "inconnu";
+	}
+	salaire = joueur.getSalaire();
+	victoires = joueur.getVictoires();
+	defaites = joueur.getDefaites();
+	
 }
 %>
 <!DOCTYPE html>
@@ -66,18 +95,42 @@ ul.info{
 ul.info li{
 padding: 20px
 }
+table{
+border: 1px solid black;
+}
+th{padding: 10px;}
 
 </style>
 <%@include file="includes/header.jsp"%>
 
 
 	<ul class="info">
+		<li style="padding: 0px"><%=id %></li>
 		<li id="nom" style="padding-left:0px;list-style-type:none;font-size:30px;font-weight:bold;text-transform:uppercase;"> <%=prenom %>  <%=nom %></li>
 		<li id="pays">Nationnalite: <%=pays %></li>
-		<li id="catégorie">Catégorie: <%=categorie %></li>
+		<li id="categorie">Categorie: <%=categorie %></li>
 		<li id="classement">Classement mondial: <%=classement %></li>
 		<li id="main">Main: <%=main %></li>
 		<li id="age">Age: <%=age %></li>
+		<li style="margin-top: 20px;">Lieu de naissance: <%=lieuNaissance %></li>
+		<li>Taille: <%=taille %>m</li>
+		<li>Poids: <%=poids %>kg</li>
+		<li style="margin-top: 50px;">Debut de sa carriere: <%=debutCarriere %></li>
+		<li>Entraineur: <%=entraineur %></li>
+		<li>Salaire: <%=salaire %> euros</li>
+		<li style="list-style-type: none;">Vicotory
+		<table>
+			<tr>
+				<th style="border-right: 1px black solid;">Victoires</th>
+				<th>Defaites</th>
+			</tr>
+			<tr>
+				<th style="border-right: 1px black solid; border-top: 1px black solid;"><%=victoires %></th>
+				<th style="border-top: 1px black solid;"><%=defaites %></th>
+			</tr>
+		</table>
+		</li>
+		
 	</ul>
 	
 	<div><%=error %></div>
