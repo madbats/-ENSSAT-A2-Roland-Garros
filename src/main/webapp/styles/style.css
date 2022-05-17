@@ -47,9 +47,21 @@ beta{
 	text-decoration: none; 
 }
 
-.footer
+.error{
+	background-color: #ff8080;
+	border : red;
+	border-style: solid;
+	border-width: medium;
+	margin-: 10px 0px;
+}
+
+footer
 {
-   color: black;
+	
+	position:fixed;
+	bottom: 0;
+	width: 100%;
+   	/*color: black;*/
 }
 
 nav{
