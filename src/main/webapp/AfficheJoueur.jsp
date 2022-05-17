@@ -1,5 +1,7 @@
 <%@ page language="java"%>
 <%@ page import="org.rolandGarros.model.Joueur"%>
+<%@ page import="java.util.Collection" %>
+<%@ page import="org.rolandGarros.model.Match" %>
 <%
 int id = -1;
 String nom = null;
@@ -80,6 +82,7 @@ else
 	victoires = joueur.getVictoires();
 	defaites = joueur.getDefaites();
 	
+	Collection<Match> matches = joueur.getMatchs();
 }
 %>
 <!DOCTYPE html>
