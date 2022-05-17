@@ -118,7 +118,7 @@ th{padding: 10px;}
 		<li style="margin-top: 50px;">Debut de sa carriere: <%=debutCarriere %></li>
 		<li>Entraineur: <%=entraineur %></li>
 		<li>Salaire: <%=salaire %> euros</li>
-		<li style="list-style-type: none;">Vicotory
+		<li style="list-style-type: none;">
 		<table>
 			<tr>
 				<th style="border-right: 1px black solid;">Victoires</th>
