@@ -2,6 +2,7 @@ package org.rolandGarros.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.rolandGarros.controller.JoueurServiceImpl;
@@ -11,7 +12,7 @@ public class Match {
 	private Collection<Set> sets = null;
 	private Collection<Joueur> joueurs = null;
 
-	public Match(int idMatch, int dureeSecondes, int court, String etape, int idJ1, int idJ2) {
+	public Match(int idMatch, int dureeSecondes, int court, String etape, int idJ1, int idJ2,Date date) {
 		super();
 		this.idMatch = idMatch;
 		this.dureeSecondes = dureeSecondes;
@@ -19,14 +20,16 @@ public class Match {
 		this.etape = etape;
 		this.idJ1 = idJ1;
 		this.idJ2 = idJ2;
+		this.date = date;
 	}
 
-	public Match(int dureeSecondes, int court, String etape, int idJ1, int idJ2) {
+	public Match(int dureeSecondes, int court, String etape, int idJ1, int idJ2,Date date) {
 		this.dureeSecondes = dureeSecondes;
 		this.court = court;
 		this.etape = etape;
 		this.idJ1 = idJ1;
 		this.idJ2 = idJ2;
+		this.date = date;
 	}
 
 	private int idMatch;
@@ -35,6 +38,7 @@ public class Match {
 	private String etape;
 	private int idJ1;
 	private int idJ2;
+	private Date date;
 
 	public int getIdMatch() {
 		return idMatch;
@@ -83,6 +87,16 @@ public class Match {
 	public void setIdJ2(int idJ2) {
 		this.idJ2 = idJ2;
 	}
+	
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 
 	public Collection<Set> getSets() {
 		if (this.sets == null) {
@@ -103,7 +117,7 @@ public class Match {
 	}
 
 	public int getIdWinner() {
-		if (this.idWinner == -1) {
+		if (this.idWinner == -1 && this.dureeSecondes==0) {
 			int setsWonByJ1 = 0;
 			List<Set> setList = new ArrayList<Set>(this.getSets());
 			for (Set set : setList) {
@@ -115,7 +129,6 @@ public class Match {
 		}
 
 		return this.idWinner;
-
 	}
 
 }

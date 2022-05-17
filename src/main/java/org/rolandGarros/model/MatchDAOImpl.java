@@ -23,7 +23,8 @@ public class MatchDAOImpl implements Dao<Match> {
 						rs.getInt("court"),
 						rs.getString("etape"),
 						rs.getInt("idJ1"),
-						rs.getInt("idJ2")));
+						rs.getInt("idJ2"),
+						rs.getDate("date")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -46,7 +47,8 @@ public class MatchDAOImpl implements Dao<Match> {
 						rs.getInt("court"),
 						rs.getString("etape"),
 						rs.getInt("idJ1"),
-						rs.getInt("idJ2")));
+						rs.getInt("idJ2"),
+						rs.getDate("date")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -66,13 +68,15 @@ public class MatchDAOImpl implements Dao<Match> {
 					+ "`court`,"
 					+ "`etape`,"
 					+ "`idJ1`,"
-					+ "`idJ2`)"
+					+ "`idJ2`,"
+					+ "`date`)"
 					+ "VALUES"
 					+ "(" + t.getDureeSecondes() + ","
 					+ t.getCourt() + ","
 					+ "'"+t.getEtape() + "',"
 					+ t.getIdJ1() + ","
-					+ t.getIdJ2() + ");");
+					+ t.getIdJ2() + ","
+					+ "'"+new java.sql.Date(t.getDate().getTime())+"');");
 		} catch (SQLException e) {
 			retour = -1;
 			e.printStackTrace();
@@ -88,13 +92,14 @@ public class MatchDAOImpl implements Dao<Match> {
 			statement = connexion.createStatement();
 			ResultSet rs = statement.executeQuery("UPDATE `info_team01_schema`.`Match`"
 					+ "SET"
-					+ "`idMatch` =`" + t.getIdMatch() +"`,"
-					+ "`dureeSecond` =`" + t.getDureeSecondes() +"`,"
-					+ "`court` =`"+ t.getCourt() + "`,"
-					+ "`etape` =`" + t.getEtape() + "`,"
-					+ "`idJ1` =`" + t.getIdJ1() + "`,"
-					+ "`idJ2` = " + t.getIdJ2() + "`"
-					+ "WHERE `idMatch` = `" + t.getIdMatch() +"`;");
+					+ "`idMatch` =" + t.getIdMatch() +","
+					+ "`dureeSecond` =" + t.getDureeSecondes() +","
+					+ "`court` ='"+ t.getCourt() + "',"
+					+ "`etape` =" + t.getEtape() + ","
+					+ "`idJ1` =" + t.getIdJ1() + ","
+					+ "`idJ2` =" + t.getIdJ2() + ","
+					+ "`date` =" +t.getDate()  + " "
+					+ "WHERE `idMatch` = '" + t.getIdMatch() +"';");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
