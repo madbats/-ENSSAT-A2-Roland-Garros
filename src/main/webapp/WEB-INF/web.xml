@@ -52,4 +52,9 @@
     <error-code>403</error-code>
     <location>/forbidden-error.jsp</location>
 </error-page>
+<error-page>
+    <!-- Internal Server Error -->
+    <error-code>500</error-code>
+    <location>/internal-server-error.jsp</location>
+</error-page>
 </web-app>
