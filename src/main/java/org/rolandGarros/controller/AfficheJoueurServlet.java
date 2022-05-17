@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.Optional;
 
 import org.rolandGarros.model.Joueur;
+import org.rolandGarros.model.JoueurServiceImpl;
+import org.rolandGarros.model.Service;
 
 /**
  * Servlet implementation class AfficheJoueurServlet

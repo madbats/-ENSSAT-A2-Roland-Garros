@@ -4,7 +4,7 @@ import java.io.Console;
 import java.io.IOException;
 
 import org.rolandGarros.model.Joueur;
-import org.rolandGarros.controller.JoueurServiceImpl;
+import org.rolandGarros.model.JoueurServiceImpl;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;

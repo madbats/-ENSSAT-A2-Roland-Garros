@@ -1,12 +1,11 @@
 package org.rolandGarros.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import org.rolandGarros.model.Match;
-import org.rolandGarros.model.MatchDAOImpl;
+import org.rolandGarros.model.MatchServiceImpl;
+import org.rolandGarros.model.Service;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;

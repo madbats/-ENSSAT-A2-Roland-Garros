@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.rolandGarros.model.Joueur;
+import org.rolandGarros.model.JoueurServiceImpl;
+import org.rolandGarros.model.Service;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -18,7 +20,7 @@ import jakarta.servlet.http.HttpSession;
 public class JoueursServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
+		
 		String sort = request.getParameter("sort");
 		sort = (sort!=null)? sort:"nom";
 		Service<Joueur> joueurService = new JoueurServiceImpl();
@@ -47,6 +49,7 @@ public class JoueursServlet extends HttpServlet {
               e.printStackTrace();
         }
 	}
+	
 	
 	private int nomComparerer(Joueur j1, Joueur j2) {
 		return j1.getNom().compareTo(j2.getNom());
