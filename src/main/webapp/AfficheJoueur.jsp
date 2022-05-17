@@ -105,7 +105,7 @@ th{padding: 10px;}
 
 
 	<ul class="info">
-		<li style="padding: 0px"><%=id %></li>
+		<li style="padding: 0px; list-style-type: none;"><%=id %></li>
 		<li id="nom" style="padding-left:0px;list-style-type:none;font-size:30px;font-weight:bold;text-transform:uppercase;"> <%=prenom %>  <%=nom %></li>
 		<li id="pays">Nationnalite: <%=pays %></li>
 		<li id="categorie">Categorie: <%=categorie %></li>
