@@ -3,8 +3,6 @@ package org.rolandGarros.model;
 import java.util.Collection;
 import java.util.Optional;
 
-import org.rolandGarros.controller.Service;
-
 public interface SetService extends Service<Set> {
 	Collection<Set> getAll();
 	

@@ -61,16 +61,17 @@ public class SetDAOImpl implements Dao<Set> {
 		int retour = t.getIdSet();
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery("INSERT INTO `info_team01_schema`.`Set`"
+			statement.executeUpdate("INSERT INTO `info_team01_schema`.`Set`"
 					+ "(`idMatch`,"
 					+ "`scoreJ1`,"
 					+ "`scoreJ2`,"
 					+ "`numero`)"
 					+ "VALUES"
-					+ "(`" + t.getIdMatch() + "`,"
-					+ "`"+t.getScoreJ1() + "`,"
-					+ "`"+t.getScoreJ2() + "`,"
-					+ "`"+t.getNumero() + "`);");
+					+ "("
+					+ t.getIdMatch()+","
+					+ t.getScoreJ1() + ","
+					+ t.getScoreJ2() + ","
+					+ t.getNumero() + ");");
 		} catch (SQLException e) {
 			retour = -1;
 			e.printStackTrace();
@@ -85,14 +86,14 @@ public class SetDAOImpl implements Dao<Set> {
 		Statement statement;
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery("UPDATE `info_team01_schema`.`Set`"
+			statement.executeUpdate("UPDATE `info_team01_schema`.`Set`"
 					+ "SET"
-					+ "`idSet` = `" + t.getIdSet() +"`,"
-					+ "`idMatch` = `" + t.getIdMatch() + "`,"
-					+ "`scoreJ1` = `" + t.getScoreJ1() + "`,"
-					+ "`scoreJ2` = `" + t.getScoreJ2() + "`,"
-					+ "`numero` = `" + t.getNumero() + "`,"
-					+ "WHERE `idSet` = `" + t.getIdSet() + "`;");
+					+ "`idSet` = " + t.getIdSet() +","
+					+ "`idMatch` = " + t.getIdMatch() + ","
+					+ "`scoreJ1` = " + t.getScoreJ1() + ","
+					+ "`scoreJ2` = " + t.getScoreJ2() + ","
+					+ "`numero` = " + t.getNumero() + ","
+					+ "WHERE `idSet` = " + t.getIdSet() + ";");
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -106,8 +107,8 @@ public class SetDAOImpl implements Dao<Set> {
 		int retour = t.getIdSet();
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery("DELETE FROM `info_team01_schema`.`Set`"
-					+ "WHERE `idSet` =`"+t.getIdSet()+";");
+			statement.executeUpdate("DELETE FROM `info_team01_schema`.`Set`"
+					+ "WHERE `idSet` ="+t.getIdSet()+";");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

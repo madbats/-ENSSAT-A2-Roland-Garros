@@ -64,14 +64,14 @@ public class MatchDAOImpl implements Dao<Match> {
 		try {
 			statement = connexion.createStatement();
 			statement.executeUpdate("INSERT INTO `info_team01_schema`.`Match`"
-					+ "(`dureeSecond`,"
+					+ "("
 					+ "`court`,"
 					+ "`etape`,"
 					+ "`idJ1`,"
 					+ "`idJ2`,"
 					+ "`date`)"
 					+ "VALUES"
-					+ "(" + t.getDureeSecondes() + ","
+					+ "("
 					+ t.getCourt() + ","
 					+ "'"+t.getEtape() + "',"
 					+ t.getIdJ1() + ","
@@ -90,7 +90,7 @@ public class MatchDAOImpl implements Dao<Match> {
 		Statement statement;
 		try {
 			statement = connexion.createStatement();
-			ResultSet rs = statement.executeQuery("UPDATE `info_team01_schema`.`Match`"
+			statement.executeUpdate("UPDATE `info_team01_schema`.`Match`"
 					+ "SET"
 					+ "`idMatch` =" + t.getIdMatch() +","
 					+ "`dureeSecond` =" + t.getDureeSecondes() +","
@@ -98,7 +98,7 @@ public class MatchDAOImpl implements Dao<Match> {
 					+ "`etape` =" + t.getEtape() + ","
 					+ "`idJ1` =" + t.getIdJ1() + ","
 					+ "`idJ2` =" + t.getIdJ2() + ","
-					+ "`date` =" +t.getDate()  + " "
+					+ "`date` ='" +new java.sql.Date(t.getDate().getTime())  + "' "
 					+ "WHERE `idMatch` = '" + t.getIdMatch() +"';");
 		} catch (SQLException e) {
 			e.printStackTrace();

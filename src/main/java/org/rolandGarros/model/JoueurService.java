@@ -1,9 +1,7 @@
-package org.rolandGarros.controller;
+package org.rolandGarros.model;
 
 import java.util.Collection;
 import java.util.Optional;
-
-import org.rolandGarros.model.Joueur;
 
 public interface JoueurService extends Service<Joueur> {
 	Collection<Joueur> getAll();

@@ -1,11 +1,7 @@
-package org.rolandGarros.controller;
+package org.rolandGarros.model;
 
 import java.util.Collection;
 import java.util.Optional;
-
-import org.rolandGarros.model.Dao;
-import org.rolandGarros.model.Joueur;
-import org.rolandGarros.model.JoueurDAOImpl;
 
 public class JoueurServiceImpl implements JoueurService {
 	private Dao<Joueur> joueurDao = new JoueurDAOImpl();

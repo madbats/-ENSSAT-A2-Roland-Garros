@@ -5,8 +5,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import org.rolandGarros.controller.JoueurServiceImpl;
-
 public class Match {
 	private int idWinner = -1;
 	private Collection<Set> sets = null;
@@ -23,8 +21,8 @@ public class Match {
 		this.date = date;
 	}
 
-	public Match(int dureeSecondes, int court, String etape, int idJ1, int idJ2,Date date) {
-		this.dureeSecondes = dureeSecondes;
+	public Match(int court, String etape, int idJ1, int idJ2,Date date) {
+		//this.dureeSecondes = dureeSecondes;
 		this.court = court;
 		this.etape = etape;
 		this.idJ1 = idJ1;
@@ -117,7 +115,7 @@ public class Match {
 	}
 
 	public int getIdWinner() {
-		if (this.idWinner == -1 && this.dureeSecondes==0) {
+		if (this.idWinner == -1 && this.dureeSecondes>0) {
 			int setsWonByJ1 = 0;
 			List<Set> setList = new ArrayList<Set>(this.getSets());
 			for (Set set : setList) {

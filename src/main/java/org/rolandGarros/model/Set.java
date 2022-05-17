@@ -11,6 +11,14 @@ public class Set {
 		this.numero = numero;
 	}
 	
+	public Set( int idMatch, int scoreJ1, int scoreJ2, int numero) {
+		super();
+		this.idMatch = idMatch;
+		this.scoreJ1 = scoreJ1;
+		this.scoreJ2 = scoreJ2;
+		this.numero = numero;
+	}
+	
 	private int idSet;
 	private int idMatch;
 	private int scoreJ1;
