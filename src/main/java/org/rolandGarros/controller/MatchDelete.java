@@ -13,27 +13,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/MatchDelete")
+@WebServlet("/mm/delete")
 public class MatchDelete extends jakarta.servlet.http.HttpServlet{
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String pageName = "/SupprimerMatch.jsp";
-		MatchDAOImpl mdi = new MatchDAOImpl();
-		List<Match> listMatch = (List<Match>) mdi.getAll();
-		req.setAttribute("listMatch", listMatch);
-		RequestDispatcher rd = getServletContext().getRequestDispatcher(pageName);
-		try {
-			rd.forward(req, resp);
-		} catch (ServletException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		if (req.getParameter("id")!=null) {
-			Integer id = Integer.parseInt(req.getParameter("id"));
-			Optional<Match> match = mdi.get(id);
-			System.out.println(match.get().getIdMatch());
-			mdi.delete(match.get());
-		}
+	protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		Service<Match> mdi = new MatchServiceImpl();
+		mdi.delete(mdi.get(id).get());
+		resp.sendRedirect("/Roland-Garros/mm");
+		
 	}
 }

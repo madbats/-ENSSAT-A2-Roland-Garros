@@ -7,8 +7,9 @@
 <title>Page Login</title>
 <%@include file="includes/header.jsp"%>
 <main>
-<h2>Hello, please log in:</h2>
-<br><br>
+<div class="overcontainer" style="margin-top: 2em;">
+		<div style="display: flex; flex-flow: column;">
+
 <form action="j_security_check" method=post>
     <p><strong>Please Enter Your User Name: </strong>
     <input type="text" name="j_username" size="25" required=true>
@@ -18,6 +19,7 @@
     <input type="submit" value="Submit">
     <input type="reset" value="Reset">
 </form>
+</div></div>
 </main>
 <%@include file="includes/footer.jsp"%>
 </html>

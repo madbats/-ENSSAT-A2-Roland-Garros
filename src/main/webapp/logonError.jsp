@@ -7,11 +7,16 @@
 <title>Erreur Login</title>
 <%@include file="includes/header.jsp"%>
 <main>
-	<c:url var="url" value="/index.jsp"/>
-    <h2>Invalid user name or password.</h2>
+<div class="overcontainer" style="margin-top: 2em;">
+		<div style="display: flex; flex-flow: column;">
+	<c:url var="url" value="/Roland-Garros/home"/>
+    <div class="error">
+				<h2>Login incorrect</h2>
+				<p>Le mot de passe et/ou login fournit est incorrect</p>
+	</div>
+    
 
-    <p>Please enter a user name or password that is authorized to access this 
-    application.</p>
+    </div></div>
 </main>
 <%@include file="includes/footer.jsp"%>
 </html>

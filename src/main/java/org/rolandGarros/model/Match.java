@@ -123,7 +123,7 @@ public class Match {
 					setsWonByJ1++;
 				}
 			}
-			this.idWinner = (setsWonByJ1 > setList.size() / 2) ? this.getIdJ1() : this.getIdJ2();
+			this.idWinner = (setsWonByJ1 > setList.size() / 2) ? this.getIdJ1() : (setsWonByJ1 != setList.size() / 2) ?this.getIdJ2() : -1;
 		}
 
 		return this.idWinner;
