@@ -18,6 +18,10 @@ import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/joueurs")
 public class JoueursServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2374316536286829229L;
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -28,7 +32,7 @@ public class JoueursServlet extends HttpServlet {
 		
 		switch(sort) {
 			case "nom": listJoueurs.sort((j1,j2)->nomComparerer(j1,j2));
-				break;
+			break;
 			case "classement": listJoueurs.sort((j1,j2)->classementComparerer(j1,j2));
 			break;
 			case "sex": listJoueurs.sort((j1,j2)->sexComparerer(j1,j2));

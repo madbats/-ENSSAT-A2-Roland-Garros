@@ -1,7 +1,7 @@
 <%@ page language="java"%>
 <%@ page import="org.rolandGarros.model.Joueur"%>
-<%@ page import="java.util.Collection" %>
-<%@ page import="org.rolandGarros.model.Match" %>
+<%@ page import="java.util.Collection"%>
+<%@ page import="org.rolandGarros.model.Match"%>
 <%
 int id = -1;
 String nom = null;
@@ -20,68 +20,51 @@ String entraineur = null;
 int salaire = -1;
 int victoires = -1;
 int defaites = -1;
-String error = "";
-
-if(request.getAttribute("error")!=null)
-{
-	error = (String) request.getAttribute("error");
-}
-else
-{
+String error = (String) request.getAttribute("error");
+if (error != null) {
 	Joueur joueur = (Joueur) request.getAttribute("joueur");
 	nom = joueur.getNom();
-	if(nom==null)
-	{
-		nom="inconnu";
+	if (nom == null) {
+		nom = "inconnu";
 	}
 	prenom = joueur.getPrenom();
-	if(prenom==null)
-	{
-		prenom="inconnu";
+	if (prenom == null) {
+		prenom = "inconnu";
 	}
 	pays = joueur.getNationnalite();
-	if(pays==null)
-	{
-		pays="inconnu";
+	if (pays == null) {
+		pays = "inconnu";
 	}
 	categorie = joueur.getCategorie();
-	if(categorie.equals("H"))
-	{
+	if (categorie.equals("H")) {
 		categorie = "Homme";
-	}
-	else if(categorie.equals("F"))
-	{
+	} else if (categorie.equals("F")) {
 		categorie = "Femme";
-	}
-	else
-	{
-		categorie="inconnu";
+	} else {
+		categorie = "inconnu";
 	}
 	classement = joueur.getClassement();
 	main = joueur.getMain();
-	if(main==null)
-	{
-		main="inconnu";
+	if (main == null) {
+		main = "inconnu";
 	}
 	age = joueur.getAge();
 	id = joueur.getIdJoueur();
 	lieuNaissance = joueur.getLieuNaissance();
-	if(lieuNaissance==null)
-	{
-		lieuNaissance="inconnu";
+	if (lieuNaissance == null) {
+		lieuNaissance = "inconnu";
 	}
 	taille = joueur.getTaille();
 	poids = joueur.getPoids();
 	debutCarriere = joueur.getDebutCarriere();
 	entraineur = joueur.getEntraineur();
-	if(entraineur == null)
-	{
+	if (entraineur == null) {
 		entraineur = "inconnu";
 	}
 	salaire = joueur.getSalaire();
 	victoires = joueur.getVictoires();
 	defaites = joueur.getDefaites();
-	
+
 	Collection<Match> matches = joueur.getMatchs();
 }
 %>
@@ -89,23 +72,39 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Fiche Joueur</title>
+<title>Joueur</title>
 <style>
-ul.info{
- list-style-type: square;
- margin: 50px;	
- }
-ul.info li{
-padding: 20px
+ul.info {
+	list-style-type: square;
+	margin: 50px;
 }
-table{
-border: 1px solid black;
-}
-th{padding: 10px;}
 
+ul.info li {
+	padding: 20px
+}
+
+table {
+	border: 1px solid black;
+}
+
+th {
+	padding: 10px;
+}
 </style>
 <%@include file="includes/header.jsp"%>
+<main>
 
+	<div class="overcontainer" style="margin-top: 2em;">
+		<div style="display: flex; flex-flow: column;">
+			<%
+			if (error != null) {
+			%>
+			<div class="error">
+				<%=error%>
+			</div>
+			<%
+			} else {
+			%>
 
 	<ul class="info">
 		<li id="nom" style="padding-left:0px;list-style-type:none;font-size:30px;font-weight:bold;text-transform:uppercase;"> <%=prenom %>  <%=nom %></li>
@@ -152,8 +151,13 @@ th{padding: 10px;}
 		
 	</ul>
 	
-	<div><%=error %></div>
 
-</body>
+			</ul>
+			<%
+			}
+			%>
+		</div>
+	</div>
+</main>
 <%@include file="includes/footer.jsp"%>
 </html>
