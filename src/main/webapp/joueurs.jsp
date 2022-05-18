@@ -36,6 +36,8 @@ List<Joueur> listJoueurs = (List<Joueur>) request.getAttribute("listJoueurs");
 				int classement = joueur.getClassement();
 				int age = joueur.getAge();
 				String main = joueur.getMain();
+				int victoire = joueur.getVictoires();
+				int defaite = joueur.getDefaites();
 			%>
 			<li class="item"><a href="joueur?id=<%=id%>" class="card">
 					<div style="margin-top: 5px;">
@@ -45,13 +47,17 @@ List<Joueur> listJoueurs = (List<Joueur>) request.getAttribute("listJoueurs");
 						<p>
 							<%=sex%>
 							Classement
-							<%=classement%></p>
+							<%=classement%>
+						</p>
 						<div>
 							<p>
 								Age
 								<%=age%>
 								|
-								<%=main%></p>
+								<%=main%>
+							</p>
+							<p>
+								<%= victoire %> victoires / <%= victoire + defaite %> matchs
 						</div>
 					</div>
 			</a></li>
