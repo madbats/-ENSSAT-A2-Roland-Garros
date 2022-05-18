@@ -44,7 +44,6 @@ public class PlayerUpdate extends jakarta.servlet.http.HttpServlet{
 			e.printStackTrace();
 		}
 		
-		resp.sendRedirect("./EditJoueurs");
 	}
 	
 	@Override
@@ -53,8 +52,8 @@ public class PlayerUpdate extends jakarta.servlet.http.HttpServlet{
 		joueur.setNom(req.getParameter("nom"));
 		joueur.setAge(Integer.parseInt(req.getParameter("age")));
 		joueur.setLieuNaissance(req.getParameter("lieu_naissance"));
-		joueur.setTaille(Integer.parseInt(req.getParameter("taille")));
-		joueur.setPoids(Integer.parseInt(req.getParameter("poids")));
+		joueur.setTaille(Float.parseFloat(req.getParameter("taille")));
+		joueur.setPoids(Float.parseFloat(req.getParameter("poids")));
 		joueur.setNationnalite(req.getParameter("nationnalite"));
 		joueur.setDebutCarriere(Integer.parseInt(req.getParameter("debut_carriere")));
 		joueur.setMain(req.getParameter("main"));
@@ -65,9 +64,10 @@ public class PlayerUpdate extends jakarta.servlet.http.HttpServlet{
 		joueur.setDefaites(Integer.parseInt(req.getParameter("defaites")));
 		joueur.setCategorie(req.getParameter("categorie"));
 		
-		System.out.println(joueur);
+		//System.out.println(joueur);
 		service.update(joueur);
-		
+
+		resp.sendRedirect("/Roland-Garros/EditJoueurs");
 		
 	}
 }
