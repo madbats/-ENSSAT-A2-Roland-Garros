@@ -33,7 +33,7 @@ public class EditJoueursServlet extends HttpServlet {
 				break;
 			case "classement": listJoueurs.sort((j1,j2)->classementComparerer(j1,j2));
 			break;
-			case "sex": listJoueurs.sort((j1,j2)->sexComparerer(j1,j2));
+			case "sexe": listJoueurs.sort((j1,j2)->sexComparerer(j1,j2));
 			break;
 			case "victoire": listJoueurs.sort((j1,j2)->victoireComparerer(j1,j2));
 			break;
@@ -54,7 +54,6 @@ public class EditJoueursServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int id = Integer.parseInt(req.getParameter("id"));
 		String prenom = req.getParameter("prenom");
 		String nom = req.getParameter("nom");
 		int age = Integer.parseInt(req.getParameter("age"));
@@ -71,7 +70,7 @@ public class EditJoueursServlet extends HttpServlet {
 		int defaites = Integer.parseInt(req.getParameter("defaites"));
 		String categorie = req.getParameter("categorie");
 		
-		Joueur joueur = new Joueur(id, prenom, nom, age, lieuNaissance, taille, poids, nationnalite, debutCarriere, main, classement, entraineur, salaire, victoires, defaites, categorie);
+		Joueur joueur = new Joueur(prenom, nom, age, lieuNaissance, taille, poids, nationnalite, debutCarriere, main, classement, entraineur, salaire, victoires, defaites, categorie);
 		System.out.println(joueur);
 		
 		service.save(joueur);
