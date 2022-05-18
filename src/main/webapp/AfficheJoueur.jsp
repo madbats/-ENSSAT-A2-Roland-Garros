@@ -21,7 +21,7 @@ int salaire = -1;
 int victoires = -1;
 int defaites = -1;
 String error = (String) request.getAttribute("error");
-if (error != null) {
+if (error == null) {
 	Joueur joueur = (Joueur) request.getAttribute("joueur");
 	nom = joueur.getNom();
 	if (nom == null) {
@@ -106,51 +106,60 @@ th {
 			} else {
 			%>
 
-	<ul class="info">
-		<li id="nom" style="padding-left:0px;list-style-type:none;font-size:30px;font-weight:bold;text-transform:uppercase;"> <%=prenom %>  <%=nom %></li>
-		<li id="pays">Nationnalite: <%=pays %></li>
-		<li id="categorie">Categorie: <%=categorie %></li>
-		<li id="classement">Classement mondial: <%=classement %></li>
-		<li id="main">Main: <%=main %></li>
-		<li id="age">Age: <%=age %></li>
-		<li style="margin-top: 20px;">Lieu de naissance: <%=lieuNaissance %></li>
-		<li>Taille: 
-		<% 	if (taille != 0) { %>
-			<%= taille %>m 
-		<% }
-			else { %> inconnue <% };
-		%>
-		</li>
-		<li>Poids: 
-		<% if (poids != 0) { %>
-			<%=poids %>kg
-		<%}
-		   else { %> inconnu <% }; 
-		%>
-		</li>
-		<li style="margin-top: 50px;">Debut de sa carriere: 
-		<% if(debutCarriere != 0) { %>
-			<%=debutCarriere %>
-		<%}
-		  else { %> inconnu <% }; %>
-		</li>
-		<li>Entraineur: <%=entraineur %></li>
-		<li>Salaire: <%=salaire %> euros</li>
-		<li style="list-style-type: none;">
-		<table>
-			<tr>
-				<th style="border-right: 1px black solid;">Victoires</th>
-				<th>Defaites</th>
-			</tr>
-			<tr>
-				<th style="border-right: 1px black solid; border-top: 1px black solid;"><%=victoires %></th>
-				<th style="border-top: 1px black solid;"><%=defaites %></th>
-			</tr>
-		</table>
-		</li>
-		
-	</ul>
-	
+			<ul class="info">
+				<li id="nom"
+					style="padding-left: 0px; list-style-type: none; font-size: 30px; font-weight: bold; text-transform: uppercase;">
+					<%=prenom%> <%=nom%></li>
+				<li id="pays">Nationnalite: <%=pays%></li>
+				<li id="categorie">Categorie: <%=categorie%></li>
+				<li id="classement">Classement mondial: <%=classement%></li>
+				<li id="main">Main: <%=main%></li>
+				<li id="age">Age: <%=age%></li>
+				<li style="margin-top: 20px;">Lieu de naissance: <%=lieuNaissance%></li>
+				<li>Taille: <%
+				if (taille != 0) {
+				%> <%=taille%>m <%
+ } else {
+ %> inconnue <%
+ }
+ ;
+ %>
+				</li>
+				<li>Poids: <%
+				if (poids != 0) {
+				%> <%=poids%>kg <%
+ } else {
+ %> inconnu <%
+ }
+ ;
+ %>
+				</li>
+				<li style="margin-top: 50px;">Debut de sa carriere: <%
+				if (debutCarriere != 0) {
+				%>
+					<%=debutCarriere%> <%
+ } else {
+ %> inconnu <%
+ }
+ ;
+ %>
+				</li>
+				<li>Entraineur: <%=entraineur%></li>
+				<li>Salaire: <%=salaire%> euros
+				</li>
+				<li style="list-style-type: none;">
+					<table>
+						<tr>
+							<th style="border-right: 1px black solid;">Victoires</th>
+							<th>Defaites</th>
+						</tr>
+						<tr>
+							<th
+								style="border-right: 1px black solid; border-top: 1px black solid;"><%=victoires%></th>
+							<th style="border-top: 1px black solid;"><%=defaites%></th>
+						</tr>
+					</table>
+				</li>
 
 			</ul>
 			<%

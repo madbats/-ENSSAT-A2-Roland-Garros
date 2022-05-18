@@ -10,7 +10,7 @@
 <div class="overcontainer" style="margin-top: 2em;">
 		<div style="display: flex; flex-flow: column;">
 			<div class="error">
-				<h3>Opps une erreur 500 Intern au serveur c'est produit</h3>
+				<h3>Oups une erreur 500 Interne au serveur s'est produite</h3>
 			</div>
 	</div>
 </div>

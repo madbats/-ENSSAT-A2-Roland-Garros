@@ -24,7 +24,6 @@ public class AfficheJoueurServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String pageName="/AfficheJoueur.jsp";
 		
 		Integer id = Integer.parseInt(request.getParameter("id"));
@@ -45,6 +44,8 @@ public class AfficheJoueurServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else {
+			request.setAttribute("error", null);
+			
 			joueur = j.get();
 			request.setAttribute("joueur",joueur);
 			
