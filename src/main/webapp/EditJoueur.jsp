@@ -9,6 +9,31 @@ List<Joueur> listJoueurs = (List<Joueur>) request.getAttribute("listJoueurs");
 <head>
 <meta charset="ISO-8859-1">
 <title>Joueurs et joueuses</title>
+<style>
+#showpopup{
+    display: none;
+}           
+label[for="showpopup"]{
+    color: white;
+    background-color: black;
+    border: 3px solid;
+    cursor: pointer;
+    outline: none;
+}
+label[for="showpopup"]::selection{
+    display: none;
+}
+#popup{
+    display: none;
+    border: 1px solid black;
+    position: absolute;
+    width: 300px;
+    height: 200px;
+}
+#showpopup:checked ~ #popup{
+    display: block;
+} 
+</style>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/styles/affichageListe.css" />
 <%@include file="includes/header.jsp"%>
@@ -55,12 +80,11 @@ List<Joueur> listJoueurs = (List<Joueur>) request.getAttribute("listJoueurs");
 								|
 								<%=main%></p>
 						</div>
-						<div style="display:flex">
-							<form action="/PlayerUpdate"><button type="submit">Update</button></form>
-							<form action="/PlayerDelete"><button type="submit">Delete</button></form>
-						</div>
+							
 					</div>
-			</a></li>
+			</a>
+					<a href="./PlayerUpdate?id=<%=id%>">Update</a>
+					<a href="./PlayerDelete?id=<%=id%>">Delete</a></li>
 			<%
 			}
 			%>
