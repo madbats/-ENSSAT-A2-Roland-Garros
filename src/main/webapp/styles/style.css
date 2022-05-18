@@ -13,6 +13,11 @@ h1 {
 	
 }
 
+.index{
+	text-decoration: none; 
+	background-color: none;
+}
+
 nav b {
 	text-decoration: none;
 	box-shadow: none;
@@ -133,7 +138,12 @@ nav > ul li:hover .sous{
 
 .conteneur{
   margin: 50px 20px;
-  height: 1500px;
+  height: 1000px;
+}
+
+imaged{
+	height : 20%;
+	width : auto;
 }
 
 .fondfooter{
@@ -157,4 +167,17 @@ nav > ul li:hover .sous{
 	display: flex;
 	justify-content: center;
 	flex-flow: row wrap;
+}
+
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.conteneur index{
+	text-align: center;
+	text-decoration: none;
 }
