@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"
 	import="java.util.List,org.rolandGarros.model.Joueur"%>
 <%
 List<Joueur> listJoueurs = (List<Joueur>) request.getAttribute("listJoueurs");
@@ -7,7 +7,7 @@ List<Joueur> listJoueurs = (List<Joueur>) request.getAttribute("listJoueurs");
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Joueurs et joueuses</title>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/styles/affichageListe.css" />

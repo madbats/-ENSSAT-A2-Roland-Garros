@@ -1,14 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"
 	import="java.util.List,org.rolandGarros.model.Joueur"%>
 <%
 Joueur joueur = (Joueur) request.getAttribute("joueur");
 String message = (String) request.getAttribute("message");
+String isFemme = "", isHomme = "", isDroite = "", isGauche = "";
+if (joueur.getCategorie().contains("F")) {
+	isFemme = "checked";
+} else {
+	isHomme = "checked";
+}
+if (joueur.getMain().contains("Droite")) {
+	isDroite = "checked";
+} else {
+	isGauche = "checked";
+}
 %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Modifier Joueur</title>
 <%@include file="includes/header.jsp"%>
 <main>
@@ -24,71 +35,99 @@ String message = (String) request.getAttribute("message");
 			<%
 			}
 			%>
-			<form name="modifier joueur" action="PlayerUpdate" method="post">
+			<form name="modifier joueur" action="/Roland-Garros/jm/update"
+				method="post">
 
 				<h2 style="text-align: left">Modifier Joueur</h2>
-				<p style="text-align: left;">
-					Prénom : <input type="text" name="prenom"
-						value="<%=joueur.getPrenom()%>" />
-				</p>
-				<p style="text-align: left;">
-					Nom : <input type="text" name="nom" value="<%=joueur.getNom()%>" />
-				</p>
-				<p style="text-align: left;">
-					Age : <input type="text" name="age" value="<%=joueur.getAge()%>" />
-				</p>
-				<p style="text-align: left;">
-					Lieu de Naissance : <input type="text" name="lieu_naissance"
-						value="<%=joueur.getLieuNaissance()%>" />
-				</p>
-				<p style="text-align: left;">
-					Taille : <input type="text" name="taille"
-						value="<%=joueur.getTaille()%>" />
-				</p>
-				<p style="text-align: left;">
-					Poids : <input type="text" name="poids"
-						value="<%=joueur.getPoids()%>" />
-				</p>
-				<p style="text-align: left;">
-					Nationnalité : <input type="text" name="nationnalite"
-						value="<%=joueur.getNationnalite()%>" />
-				</p>
-				<p style="text-align: left;">
-					Début de Carrière : <input type="text" name="debut_carriere"
-						value="<%=joueur.getDebutCarriere()%>" />
-				</p>
-				<p style="text-align: left;">
-					Main Dominante : <input type="text" name="main"
-						value="<%=joueur.getMain()%>" />
-				</p>
-				<p style="text-align: left;">
-					Classement : <input type="text" name="classement"
-						value="<%=joueur.getClassement()%>" />
-				</p>
-				<p style="text-align: left;">
-					Entraineur : <input type="text" name="entraineur"
-						value="<%=joueur.getEntraineur()%>" />
-				</p>
-				<p style="text-align: left;">
-					Salaire : <input type="text" name="salaire"
-						value="<%=joueur.getSalaire()%>" />
-				</p>
-				<p style="text-align: left;">
-					Victoires : <input type="text" name="victoires"
-						value="<%=joueur.getVictoires()%>" />
-				</p>
-				<p style="text-align: left;">
-					Défaites : <input type="text" name="defaites"
-						value="<%=joueur.getDefaites()%>" />
-				</p>
-				<p style="text-align: left;">
-					Catégorie : <input type="text" name="categorie"
-						value="<%=joueur.getCategorie()%>" />
-				</p>
-				<p style="text-align: left; width: 75%; margin: auto;">
-					<input type="submit" name="Valider" value="Valider" />
-				</p>
+				<table>
+					<tr>
+						<td><label for="prenom"> PrÃ©nom : </label></td>
+						<td><input required type="text" name="prenom"
+							value="<%=joueur.getPrenom()%>" /></td>
+					</tr>
+					<tr>
+						<td><label for="nom"> Nom : </label></td>
+						<td><input required type="text" name="nom"
+							value="<%=joueur.getNom()%>" /></td>
+					</tr>
+					<tr>
+						<td><label for="age"> Age : </label></td>
+						<td><input required type="text" name="age"
+							value="<%=joueur.getAge()%>" pattern="[0-9]{2}" /></td>
+					</tr>
+					<tr>
+						<td><label for="lieu_naissance"> Lieu de Naissance :
+						</label></td>
+						<td><input required type="text" name="lieu_naissance"
+							value="<%=joueur.getLieuNaissance()%>" /></td>
+					</tr>
+					<tr>
+						<td><label for="taille"> Taille (en mÃ¨tres): </label></td>
+						<td><input required type="text" name="taille" pattern="[0-9.]*"
+							value="<%=joueur.getTaille()%>" /></td>
+					</tr>
+					<tr>
+						<td><label for="poids"> Poids (en kilogramme): </label></td>
+						<td><input required type="text" name="poids" pattern="[0-9.]*"
+							value="<%=joueur.getPoids()%>" /></td>
+					</tr>
+					<tr>
+						<td><label for="nationnalite"> NationnalitÃ© : </label></td>
+						<td><input required type="text" name="nationnalite"
+							value="<%=joueur.getNationnalite()%>" /></td>
+					</tr>
+					<tr>
+						<td><label for="debut_carriere"> DÃ©but de CarriÃ¨re :
+						</label></td>
+						<td><input required type="text" name="debut_carriere"
+							value="<%=joueur.getDebutCarriere()%>" pattern="[0-9]{4}" /></td>
+					</tr>
+					<tr>
+						<td>Main Dominante :</td>
+						<td><label for="Droite">Droite</label> <input required type="radio"
+							id="Droite" name="main" value="Droite" <%=isDroite%>> <label
+							for="Gauche">Gauche</label> <input required type="radio" id="Gauche"
+							name="main" value="Gauche" <%=isGauche%>></td>
+					</tr>
+					<tr>
+						<td><label for="classement"> Classement : </label></td>
+						<td><input required type="text" name="classement"
+							value="<%=joueur.getClassement()%>" pattern="[0-9]*" /></td>
+					</tr>
+					<tr>
+						<td><label for="entraineur"> Entraineur : </label></td>
+						<td><input required type="text" name="entraineur"
+							value="<%=joueur.getEntraineur()%>" /></td>
+					</tr>
+					<tr>
+						<td><label for="salaire"> Gain (en â‚¬) : </label></td>
+						<td><input required type="text" name="salaire" pattern="[0-9]*"
+							value="<%=joueur.getSalaire()%>" /></td>
+					</tr>
+					<tr>
+						<td><label for="victoires"> Victoires : </label></td>
+						<td><input required type="text" name="victoires" pattern="[0-9]*"
+							value="<%=joueur.getVictoires()%>" /></td>
+					</tr>
+					<tr>
+						<td><label for="defaites"> DÃ©faites : </label></td>
+						<td><input required type="text" name="defaites" pattern="[0-9]*"
+							value="<%=joueur.getDefaites()%>" /></td>
+					</tr>
 
+					<tr>
+						<td>CatÃ©gorie :</td>
+						<td><label for="F">Femme</label> <input required type="radio" id="F"
+							name="categorie" value="F" <%=isFemme%>> <label for="H">Homme</label><br>
+							<input required type="radio" id="H" name="categorie" value="H"
+							<%=isHomme%>></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="submit" name="Valider" value="Valider" /></td>
+						</td>
+					</tr>
+				</table>
 			</form>
 		</div>
 	</div>

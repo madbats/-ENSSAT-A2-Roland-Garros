@@ -12,9 +12,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/PlayerDelete")
+@WebServlet("/jm/delete")
 public class PlayerDelete extends jakarta.servlet.http.HttpServlet{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2940044520593524126L;
 	private JoueurServiceImpl service = new JoueurServiceImpl();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -22,9 +26,10 @@ public class PlayerDelete extends jakarta.servlet.http.HttpServlet{
 		
 		Optional<Joueur> j = service.get(id);
 		Joueur joueur =  j.get();
-			service.delete(joueur);
-			
-		resp.sendRedirect("./EditJoueurs");
+		//try {
+		service.delete(joueur);
+		//}catch()
+		resp.sendRedirect("/Roland-Garros/jm");
 		
 	}
 }

@@ -16,10 +16,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet("/EditJoueurs")
+@WebServlet("/jm")
 public class EditJoueursServlet extends HttpServlet {
 
-	private JoueurServiceImpl service = new JoueurServiceImpl();
+	private static final long serialVersionUID = 2783196248594064686L;
+	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
@@ -52,32 +53,6 @@ public class EditJoueursServlet extends HttpServlet {
         }
 	}
 	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String prenom = req.getParameter("prenom");
-		String nom = req.getParameter("nom");
-		int age = Integer.parseInt(req.getParameter("age"));
-		String lieuNaissance = req.getParameter("lieu_naissance");
-		float taille = Float.parseFloat(req.getParameter("taille"));
-		int poids = Integer.parseInt(req.getParameter("poids"));
-		String nationnalite = req.getParameter("nationnalite");
-		int debutCarriere = Integer.parseInt(req.getParameter("debut_carriere"));
-		String main = req.getParameter("main");
-		int classement = Integer.parseInt(req.getParameter("classement"));
-		String entraineur = req.getParameter("entraineur");
-		int salaire = Integer.parseInt(req.getParameter("salaire"));
-		int victoires = Integer.parseInt(req.getParameter("victoires"));
-		int defaites = Integer.parseInt(req.getParameter("defaites"));
-		String categorie = req.getParameter("categorie");
-		
-		Joueur joueur = new Joueur(prenom, nom, age, lieuNaissance, taille, poids, nationnalite, debutCarriere, main, classement, entraineur, salaire, victoires, defaites, categorie);
-		System.out.println(joueur);
-		
-		service.save(joueur);
-		
-		this.doGet(req, resp);
-	}
-	
 	private int nomComparerer(Joueur j1, Joueur j2) {
 		return j1.getNom().compareTo(j2.getNom());
 	}
@@ -93,4 +68,5 @@ public class EditJoueursServlet extends HttpServlet {
 	private int dureeComparerer(Joueur j1, Joueur j2) {
 		return j1.getMatchs().stream().mapToInt(m->m.getDureeSecondes()).sum() - j2.getMatchs().stream().mapToInt(m->m.getDureeSecondes()).sum();
 	}
+	
 }

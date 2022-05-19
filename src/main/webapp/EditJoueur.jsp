@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"
 	import="java.util.List,org.rolandGarros.model.Joueur"%>
 <%
 List<Joueur> listJoueurs = (List<Joueur>) request.getAttribute("listJoueurs");
@@ -7,7 +7,7 @@ List<Joueur> listJoueurs = (List<Joueur>) request.getAttribute("listJoueurs");
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Joueurs et joueuses</title>
 <style>
 #showpopup{
@@ -43,14 +43,16 @@ label[for="showpopup"]::selection{
 		<div class="dropdown">
 			<button class="dropbtn">Tri</button>
 			<div class="dropdown-content test">
-				<a href="joueurs?sort=nom">Nom</a> <a href="joueurs?sort=classement">Classement</a>
-				<a href="joueurs?sort=sex">Sex</a> <a href="joueurs?sort=victoire">Victoire</a>
+				<a href="/Roland-Garros/joueurs?sort=nom">Nom</a> 
+				<a href="/Roland-Garros/joueurs?sort=classement">Classement</a>
+				<a href="/Roland-Garros/joueurs?sort=sex">Sex</a> 
+				<a href="/Roland-Garros/joueurs?sort=victoire">Victoire</a>
 			</div>
 		</div>
 		<ul class="container">
-			<li class="item"><a href="./PlayerAdd" class="card">
+			<li class="item"><a href="/Roland-Garros/jm/new" class="card">
 				<div style="margin-top: 5px;">
-					Add a new player
+					Inscrire un joueur
 				</div>
 			</a></li>
 			<%
@@ -64,7 +66,7 @@ label[for="showpopup"]::selection{
 				int age = joueur.getAge();
 				String main = joueur.getMain();
 			%>
-			<li class="item"><a href="joueur?id=<%=id%>" class="card">
+			<li class="item"><a class="card">
 					<div style="margin-top: 5px;">
 						<h3><%=prenom%>
 							<%=nom%></h3>
@@ -83,8 +85,14 @@ label[for="showpopup"]::selection{
 							
 					</div>
 			</a>
-					<a href="./PlayerUpdate?id=<%=id%>">Update</a>
-					<a href="./PlayerDelete?id=<%=id%>">Delete</a></li>
+			<div class="modif" style="display: flex">
+					<a href="/Roland-Garros/jm/update?id=<%=id%>"><button>Update</button></a>
+					<% if(joueur.getMatchs().size()<1){ %>
+					<a href="/Roland-Garros/jm/delete?id=<%=id%>"><button>Delete</button></a>
+					<% } %>			
+			</div>
+			</li>
+					
 			<%
 			}
 			%>

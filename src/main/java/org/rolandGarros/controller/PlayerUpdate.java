@@ -13,7 +13,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/PlayerUpdate")
+@WebServlet("/jm/update")
 public class PlayerUpdate extends jakarta.servlet.http.HttpServlet{
 	private static final long serialVersionUID = -3523204746934429580L;
 	private Service<Joueur> service = new JoueurServiceImpl();
@@ -67,7 +67,7 @@ public class PlayerUpdate extends jakarta.servlet.http.HttpServlet{
 		//System.out.println(joueur);
 		service.update(joueur);
 
-		resp.sendRedirect("/Roland-Garros/EditJoueurs");
+		resp.sendRedirect("/Roland-Garros/jm");
 		
 	}
 }
