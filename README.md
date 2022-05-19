@@ -19,14 +19,14 @@ Cette ligne permettra au service de sécurité de lire les utilisateurs dans le re
 Dans le fichier de config du serveur tomcat-users.xml, ajouter les rôles matchMaker (requis pour gérer les matchs) et joueurMaker (requis pour gérer les matchs).
 
 ```
-	<role rolename="matcheMaker"/>
+	<role rolename="matchMaker"/>
 	<role rolename="joueurMaker"/>
 ```
 
 Vous pouvez désormais rajouter des utilisateurs en spécifiant le username, password et rôles (plusieurs rôles peuvent être attribués à un utilisateur).
 
 ```
-	<user username="matchMan" password="azerty" roles="matcheMaker"/>  	
+	<user username="matchMan" password="azerty" roles="matchMaker"/>  	
 	<user username="playerMan" password="azerty" roles="joueurMaker"/>  	
-	<user username="admin" password="admin" roles="joueurMaker,matcheMaker"/>
+	<user username="admin" password="admin" roles="joueurMaker,matchMaker"/>
 ```

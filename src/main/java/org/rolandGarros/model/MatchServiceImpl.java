@@ -3,7 +3,7 @@ package org.rolandGarros.model;
 import java.util.Collection;
 import java.util.Optional;
 
-public class MatchServiceImpl implements MatchService {
+public class MatchServiceImpl implements Service<Match> {
 	private Dao<Match> matchDao = new MatchDAOImpl();
 
 	@Override

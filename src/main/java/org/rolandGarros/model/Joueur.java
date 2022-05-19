@@ -48,6 +48,19 @@ public class Joueur {
 		this.categorie = categorie;
 	}
 
+	public Joueur(String prenom, String nom, int age, String lieuNaissance, String nationnalite, String main,
+			int classement, String categorie) {
+		super();
+		this.prenom = prenom;
+		this.nom = nom;
+		this.age = age;
+		this.main = main;
+		this.lieuNaissance = lieuNaissance;
+		this.nationnalite = nationnalite;
+		this.classement = classement;
+		this.categorie = categorie;
+	}
+
 	private int idJoueur;
 	private String prenom;
 	private String nom;

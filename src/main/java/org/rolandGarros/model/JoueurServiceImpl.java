@@ -3,7 +3,7 @@ package org.rolandGarros.model;
 import java.util.Collection;
 import java.util.Optional;
 
-public class JoueurServiceImpl implements JoueurService {
+public class JoueurServiceImpl implements Service<Joueur> {
 	private Dao<Joueur> joueurDao = new JoueurDAOImpl();
 	
 	@Override
@@ -12,12 +12,10 @@ public class JoueurServiceImpl implements JoueurService {
 		return this.joueurDao.getAll();
 	}
 
-	@Override
 	public Collection<Joueur> getAllMen() {
 		return this.joueurDao.getAll().stream().filter(j-> j.getCategorie().matches("H")).toList();
 	}
 
-	@Override
 	public Collection<Joueur> getAllWomen() {
 		return this.joueurDao.getAll().stream().filter(j-> j.getCategorie().matches("F")).toList();
 	}

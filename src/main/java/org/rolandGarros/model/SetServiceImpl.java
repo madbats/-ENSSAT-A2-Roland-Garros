@@ -3,7 +3,7 @@ package org.rolandGarros.model;
 import java.util.Collection;
 import java.util.Optional;
 
-public class SetServiceImpl implements SetService {
+public class SetServiceImpl implements Service<Set> {
 	private Dao<Set> setDao = new SetDAOImpl();
 	
 
