@@ -30,10 +30,10 @@ public class AfficheJoueurServlet extends HttpServlet {
 		
 		Service<Joueur> joueurService = new JoueurServiceImpl();
 		Optional<Joueur> j = joueurService.get(id);
-		Joueur joueur = null;
-		if (j.isEmpty())
+		if (j.isEmpty())//On gère le cas où le joueur demandé n'est pas trouvé dans la base de donnée
 		{
 			request.setAttribute("error", "Le joueur n'a pas été renseigné!");
+			//On ajoute un attribut "error" à la requête pour indiquer l'échec de l'acquisition du joueur demandé
 			
 			RequestDispatcher rd = getServletContext().getRequestDispatcher(pageName);
 			try {
@@ -43,11 +43,11 @@ public class AfficheJoueurServlet extends HttpServlet {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}else {
+		}else {//Si le joueur a été récupéré dans la base de donnée
 			request.setAttribute("error", null);
 			
-			joueur = j.get();
-			request.setAttribute("joueur",joueur);
+			Joueur joueur = j.get();
+			request.setAttribute("joueur",joueur);//On met le joueur dans la requête
 			
 			RequestDispatcher rd = getServletContext().getRequestDispatcher(pageName);
 			try {

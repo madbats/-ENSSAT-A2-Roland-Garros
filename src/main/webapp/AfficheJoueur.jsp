@@ -3,62 +3,63 @@
 <%@ page import="java.util.Collection"%>
 <%@ page import="org.rolandGarros.model.Match"%>
 <%
-int id = -1;
+//Initialisation des variables pour récupérer les informations du joueur dans la requête.
+int id = -1;//Si on n'arrive pas à récupérer cette information sur le joueur, la valeur initialisé est affichée.
 String nom = null;
 String prenom = null;
 String pays = null;
 String categorie = null;
-int classement = -1;
+int classement = -1;//Si on n'arrive pas à récupérer cette information sur le joueur, la valeur initialisé est affichée.
 String main = null;
-int age = -1;
+int age = -1;//Si on n'arrive pas à récupérer cette information sur le joueur, la valeur initialisé est affichée.
 String lieuNaissance = null;
 float taille = 0;
 float poids = 0;
 String nationalite = null;
 int debutCarriere = 0;
 String entraineur = null;
-int salaire = -1;
-int victoires = -1;
-int defaites = -1;
+int salaire = -1;//Si on n'arrive pas à récupérer cette information sur le joueur, la valeur initialisé est affichée.
+int victoires = -1;//Si on n'arrive pas à récupérer cette information sur le joueur, la valeur initialisé est affichée.
+int defaites = -1;//Si on n'arrive pas à récupérer cette information sur le joueur, la valeur initialisé est affichée.
 String error = (String) request.getAttribute("error");
-if (error == null) {
+if (error == null) {//Si on a pu récupéré le joueur dans la base de données.
 	Joueur joueur = (Joueur) request.getAttribute("joueur");
 	nom = joueur.getNom();
-	if (nom == null) {
+	if (nom == null) {//Si on a pas pu récupérer cette information sur le joueur, on affiche "inconnu"
 		nom = "inconnu";
 	}
 	prenom = joueur.getPrenom();
-	if (prenom == null) {
+	if (prenom == null) {//Si on a pas pu récupérer cette information sur le joueur, on affiche "inconnu"
 		prenom = "inconnu";
 	}
 	pays = joueur.getNationnalite();
-	if (pays == null) {
+	if (pays == null) {//Si on a pas pu récupérer cette information sur le joueur, on affiche "inconnu"
 		pays = "inconnu";
 	}
-	categorie = joueur.getCategorie();
+	categorie = joueur.getCategorie();//Pour la catégorie, on remplace la lettre par le mot complet.
 	if (categorie.equals("H")) {
 		categorie = "Homme";
 	} else if (categorie.equals("F")) {
 		categorie = "Femme";
-	} else {
+	} else {//Si on a pas pu récupérer cette information sur le joueur, on affiche "inconnu"
 		categorie = "inconnu";
 	}
 	classement = joueur.getClassement();
 	main = joueur.getMain();
-	if (main == null) {
+	if (main == null) {//Si on a pas pu récupérer cette information sur le joueur, on affiche "inconnu"
 		main = "inconnu";
 	}
 	age = joueur.getAge();
 	id = joueur.getIdJoueur();
 	lieuNaissance = joueur.getLieuNaissance();
-	if (lieuNaissance == null) {
+	if (lieuNaissance == null) {//Si on a pas pu récupérer cette information sur le joueur, on affiche "inconnu"
 		lieuNaissance = "inconnu";
 	}
 	taille = joueur.getTaille();
 	poids = joueur.getPoids();
 	debutCarriere = joueur.getDebutCarriere();
 	entraineur = joueur.getEntraineur();
-	if (entraineur == null) {
+	if (entraineur == null) {//Si on a pas pu récupérer cette information sur le joueur, on affiche "inconnu"
 		entraineur = "inconnu";
 	}
 	salaire = joueur.getSalaire();
@@ -97,13 +98,13 @@ th {
 	<div class="overcontainer" style="margin-top: 2em;">
 		<div style="display: flex; flex-flow: column;">
 			<%
-			if (error != null) {
+			if (error != null) {//Si l'attribut error n'est pas null, on l'affiche. Cela signifie que l'id du joueur n'a pas été trouvé dans la base de données
 			%>
 			<div class="error">
 				<%=error%>
 			</div>
 			<%
-			} else {
+			} else {//Si on a le joueur, on affiche ses informations issues de la base de données.
 			%>
 
 			<ul class="info">
@@ -117,7 +118,7 @@ th {
 				<li id="age">Age: <%=age%></li>
 				<li style="margin-top: 20px;">Lieu de naissance: <%=lieuNaissance%></li>
 				<li>Taille: <%
-				if (taille != 0) {
+				if (taille != 0) {//Si on n'arrive pas à récupérer cette information sur le joueur, on affiche "inconnue".
 				%> <%=taille%>m <%
  } else {
  %> inconnue <%
@@ -126,7 +127,7 @@ th {
  %>
 				</li>
 				<li>Poids: <%
-				if (poids != 0) {
+				if (poids != 0) {//Si on n'arrive pas à récupérer cette information sur le joueur, on affiche "inconnu".
 				%> <%=poids%>kg <%
  } else {
  %> inconnu <%
@@ -138,16 +139,19 @@ th {
 				if (debutCarriere != 0) {
 				%>
 					<%=debutCarriere%> <%
- } else {
+ } else {//Si on n'arrive pas à récupérer cette information sur le joueur, on affiche "inconnu".
  %> inconnu <%
  }
  ;
  %>
+ 
+ 				
 				</li>
 				<li>Entraineur: <%=entraineur%></li>
 				<li>Salaire: <%=salaire%> euros
 				</li>
 				<li style="list-style-type: none;">
+				<%--! Le nombre de victoires et de défaites sont affichés dans un tableau. --%>
 					<table>
 						<tr>
 							<th style="border-right: 1px black solid;">Victoires</th>
