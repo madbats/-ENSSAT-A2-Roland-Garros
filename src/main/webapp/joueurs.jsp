@@ -20,7 +20,7 @@ List<Joueur> listJoueurs = (List<Joueur>) request.getAttribute("listJoueurs");
 			<div class="dropdown-content test">
 				<a href="joueurs?sort=nom">Nom</a>
 				<a href="joueurs?sort=classement">Classement</a>
-				<a href="joueurs?sort=sex">Sexe</a>
+				<a href="joueurs?sort=sexe">Sexe</a>
 				<a href="joueurs?sort=victoire">Victoire</a>
 				<a href="joueurs?sort=duree">Duree de Jeu</a>
 			</div>

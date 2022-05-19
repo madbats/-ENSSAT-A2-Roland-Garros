@@ -72,14 +72,14 @@ public class EditJoueursServlet extends HttpServlet {
 		
 		Part filePart = request.getPart("file");
 	    String fileName = filePart.getSubmittedFileName();
-	    
+	    String path = "C:\\upload\\" + fileName;
 	    for (Part part : request.getParts()) {
-	      part.write("C:\\upload\\" + fileName);
+	      part.write(path);
 	    }
 	    
 		int compter = 1;
 		try {
-			List<Map<String,String>> csv = (new MyCSVReader()).readCSV("C:\\upload\\" + fileName);
+			List<Map<String,String>> csv = (new MyCSVReader()).readCSV(path);
 			Service<Joueur> service = new JoueurServiceImpl();
 			for (Map<String,String> csvJoueur : csv) {
 				
@@ -128,10 +128,10 @@ public class EditJoueursServlet extends HttpServlet {
 		return j1.getClassement() - j2.getClassement();
 	}
 	private int sexComparerer(Joueur j1, Joueur j2) {
-		return j1.getCategorie().compareTo(j2.getCategorie());
+		return (j2.getCategorie().contains("F"))? 0 :1;
 	}
 	private int victoireComparerer(Joueur j1, Joueur j2) {
-		return j1.getVictoires() - j2.getVictoires();
+		return j2.getVictoires() - j1.getVictoires();
 	}	
 	private int dureeComparerer(Joueur j1, Joueur j2) {
 		return j1.getMatchs().stream().mapToInt(m->m.getDureeSecondes()).sum() - j2.getMatchs().stream().mapToInt(m->m.getDureeSecondes()).sum();

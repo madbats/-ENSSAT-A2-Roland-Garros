@@ -50,7 +50,7 @@ label[for="showpopup"]::selection {
 			<div class="dropdown-content test">
 				<a href="/Roland-Garros/jm?sort=nom">Nom</a> <a
 					href="/Roland-Garros/jm?sort=classement">Classement</a> <a
-					href="/Roland-Garros/jm?sort=sex">Sex</a> <a
+					href="/Roland-Garros/jm?sort=sexe">Sexe</a> <a
 					href="/Roland-Garros/jm?sort=victoire">Victoire</a>
 			</div>
 		</div>

@@ -35,7 +35,7 @@ public class JoueursServlet extends HttpServlet {
 			break;
 			case "classement": listJoueurs.sort((j1,j2)->classementComparerer(j1,j2));
 			break;
-			case "sex": listJoueurs.sort((j1,j2)->sexComparerer(j1,j2));
+			case "sexe": listJoueurs.sort((j1,j2)->sexComparerer(j1,j2));
 			break;
 			case "victoire": listJoueurs.sort((j1,j2)->victoireComparerer(j1,j2));
 			break;
@@ -62,10 +62,10 @@ public class JoueursServlet extends HttpServlet {
 		return j1.getClassement() - j2.getClassement();
 	}
 	private int sexComparerer(Joueur j1, Joueur j2) {
-		return j1.getCategorie().compareTo(j2.getCategorie());
+		return (j2.getCategorie().contains("F"))? 1:0;
 	}
 	private int victoireComparerer(Joueur j1, Joueur j2) {
-		return j1.getVictoires() - j2.getVictoires();
+		return j2.getVictoires() - j1.getVictoires();
 	}	
 	private int dureeComparerer(Joueur j1, Joueur j2) {
 		return j1.getMatchs().stream().mapToInt(m->m.getDureeSecondes()).sum() - j2.getMatchs().stream().mapToInt(m->m.getDureeSecondes()).sum();

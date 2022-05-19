@@ -30,3 +30,9 @@ Vous pouvez désormais rajouter des utilisateurs en spécifiant le username, passw
 	<user username="playerMan" password="azerty" roles="joueurMaker"/>  	
 	<user username="admin" password="admin" roles="joueurMaker,matchMaker"/>
 ```
+
+### Upload des csv
+
+Par défault l'application est concue pour tournée sur un OS Windows. Il faut crée à la racine du drive 'C:' un dossier 'upload' dans lequel seront stocké les fichiers uploadé.
+
+Pour changer cela il sufit de remplacer "C:\\upload\\" à la ligne 75 du fichier org/roland-garros/controller/EditJoueurs.java , par le chemin absolue que vous souhaitez.
