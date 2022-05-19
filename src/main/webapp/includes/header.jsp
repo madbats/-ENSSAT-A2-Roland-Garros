@@ -17,23 +17,21 @@
   <ul>
     <li class="deroulant"><a href="joueurs"> Joueurs &ensp;</a>
       <ul class="sous">
-        <li><a href="joueurs"> Liste des joueuses / joueurs </a></li>
-        <li><a href="jm/new"> Ajouter un joueur </a></li>
-        <li><a href="jm/update"> Modifier un joueur </a></li>
-        <li><a href="jm/delete"> Supprimer un joueur </a></li>
+        <li><a href="/Roland-Garros/joueurs"> Liste des joueuses / joueurs </a></li>
+        <li><a href="/Roland-Garros/jm/new"> Ajouter un joueur </a></li>
+        <li><a href="/Roland-Garros/jm"> Gestion joueurs </a></li>
       </ul>
     </li>
     <li class="deroulant"><a href="matchs"> Matchs &ensp;</a>
       <ul class="sous">
-        <li><a href="matchs"> Liste des matchs </a></li>
-        <li><a href="mm/new"> Ajouter un match </a></li>
-        <li><a href="mm/update"> Modifier un match </a></li>
-        <li><a href="mm/delete"> Supprimer un match </a></li>
+        <li><a href="/Roland-Garros/matchs"> Liste des matchs </a></li>
+        <li><a href="/Roland-Garros/mm/new"> Ajouter un match </a></li>
+        <li><a href="/Roland-Garros/mm"> Gestion matchs </a></li>
       </ul>
     </li>
     <%if(request.getUserPrincipal()!=null) { %>
     	<li></li>
-       	<li><a href="logout"> Logout </a></li>
+       	<li><a href="/Roland-Garros/logout"> Logout </a></li>
     <%}else{ %>
     	<li></li>
     	<li></li>
